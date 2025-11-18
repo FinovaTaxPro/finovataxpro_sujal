@@ -1,19 +1,10 @@
-"use client";
-import React from 'react';
+'use client';
 import { useRouter } from 'next/navigation';
-
-// Define types to satisfy TypeScript build
-interface SectionHeadingProps {
-  children: React.ReactNode;
-}
-
-interface CardProps {
-  children: React.ReactNode;
-  onClick?: () => void; // The '?' makes this optional, fixing your build error
-  className?: string;
-}
-
-function SectionHeading({ children }: SectionHeadingProps) {
+// import SectionHeading from '../ui/SectionHeading';
+// import Card from '../ui/card';
+import { servicesData } from '../../data/services';
+ 
+function SectionHeading({ children }) {
   return (
     <div className="text-center mb-12">
       <h2 className="text-4xl font-bold text-white mb-4">
@@ -24,12 +15,11 @@ function SectionHeading({ children }: SectionHeadingProps) {
   );
 }
 
-function Card({ children, onClick, className = "" }: CardProps) {
+function Card({ children, onClick = undefined, className = "" }) {
   return (
     <div 
       onClick={onClick}
-      className={`bg-gradient-to-br from-slate-900/90 to-blue-900/90 backdrop-blur-md rounded-xl p-6 border border-cyan-400/20 shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 ${className}`}
-    >
+      className={`bg-gradient-to-br from-slate-900/90 to-blue-900/90 backdrop-blur-md rounded-xl p-6 border border-cyan-400/20 shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 ${className}`}>
       {children}
     </div>
   );
@@ -37,75 +27,39 @@ function Card({ children, onClick, className = "" }: CardProps) {
 
 export default function Services() {
   const router = useRouter();
-  // Sample service categories data
-  const categories = [
-    {
-      title: "GST Services",
-      slug: "gst-services",
-      description: "Complete GST registration, filing, and compliance solutions for your business.",
-      serviceCount: 8,
-      icon: "📊"
-    },
-    {
-      title: "Income Tax",
-      slug: "income-tax",
-      description: "Expert tax planning, ITR filing, and assessment support for individuals and businesses.",
-      serviceCount: 12,
-      icon: "💼"
-    },
-    {
-      title: "Business Registration",
-      slug: "business-registration",
-      description: "Company incorporation, LLP registration, and all business formation services.",
-      serviceCount: 10,
-      icon: "🏢"
-    },
-    {
-      title: "Accounting & Bookkeeping",
-      slug: "accounting-bookkeeping",
-      description: "Professional accounting, payroll, and financial management services.",
-      serviceCount: 7,
-      icon: "📈"
-    },
-    {
-      title: "ROC Compliance",
-      slug: "roc-compliance",
-      description: "Annual returns, board resolutions, and regulatory compliance filings.",
-      serviceCount: 9,
-      icon: "📋"
-    },
-    {
-      title: "Legal Services",
-      slug: "legal-services",
-      description: "Trademark registration, contracts, and legal documentation support.",
-      serviceCount: 6,
-      icon: "⚖️"
-    }
-  ];
-
+  
+  // Convert servicesData object to array of categories
+  const categories = Object.entries(servicesData).map(([key, category]) => ({
+    title: category.title,
+    slug: category.slug,
+    description: category.description,
+    serviceCount: category.services.length,
+    icon: category.icon
+  }));
+  
+ 
   const handleCategoryClick = (categorySlug: string) => {
-    // Navigate to category page
     router.push(`/services/category/${categorySlug}`);
   };
 
   return (
-    <section id="services" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
-      {/* Enhanced Animated Background - Same as Hero */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Layered gradient waves */}
-        <div className="absolute inset-0 opacity-20">
+     <section id="services" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
+     {/* Enhanced Animated Background */}
+       <div className="absolute inset-0 overflow-hidden">
+         {/* Layered gradient waves */}
+         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-700 to-purple-800 animate-gradient-shift"></div>
-        </div>
+         </div>
         
-        {/* Abstract geometric shapes */}
+         {/* Abstract geometric shapes */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-cyan-500 rounded-full mix-blend-screen filter blur-3xl animate-blob"></div>
-          <div className="absolute top-40 right-20 w-80 h-80 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl animate-blob animation-delay-4000"></div>
+           <div className="absolute top-20 left-10 w-64 h-64 bg-cyan-500 rounded-full mix-blend-screen filter blur-3xl animate-blob"></div>
+           <div className="absolute top-40 right-20 w-80 h-80 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl animate-blob animation-delay-2000"></div>
+           <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl animate-blob animation-delay-4000"></div>
         </div>
 
-        {/* Hexagonal grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
+         {/* Hexagonal grid pattern */}
+         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3C/svg%3E")`,
           backgroundSize: '60px 60px'
         }}></div>
@@ -152,9 +106,7 @@ export default function Services() {
               onClick={() => handleCategoryClick(category.slug)}
               className="cursor-pointer group transform hover:-translate-y-2 transition-all duration-300"
             >
-              {/* Card now knows onClick is optional */}
               <Card>
-                
                 <div className="flex items-start mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center text-2xl mr-3 group-hover:shadow-lg group-hover:shadow-cyan-500/50 transition-all duration-300">
                     {category.icon}
@@ -171,10 +123,7 @@ export default function Services() {
                 <p className="text-sm text-slate-300 mb-4 leading-relaxed">
                   {category.description}
                 </p>
-                <button
-                  onClick={() => handleCategoryClick(category.slug)}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-cyan-500/30 transform hover:-translate-y-0.5"
-                >
+                <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-cyan-500/30 transform hover:-translate-y-0.5">
                   Explore Services →
                 </button>
               </Card>
@@ -192,7 +141,7 @@ export default function Services() {
               Our expert team is ready to help with custom solutions tailored to your needs.
             </p>
             <button 
-              onClick={() => alert('Navigating to: /contact')}
+              onClick={() => router.push('/contact')}
               className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-3 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-cyan-500/30 transform hover:-translate-y-0.5"
             >
               Contact Our Experts
@@ -201,7 +150,7 @@ export default function Services() {
         </div>
       </div>
 
-      <style jsx>{`
+ <style jsx>{`
         @keyframes gradient-shift {
           0%, 100% { transform: translateX(-5%) translateY(-5%) rotate(0deg); }
           50% { transform: translateX(5%) translateY(5%) rotate(5deg); }
@@ -259,6 +208,7 @@ export default function Services() {
           background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 2px);
         }
       `}</style>
+
     </section>
   );
 }
