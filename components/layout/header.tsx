@@ -485,7 +485,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 shadow-lg fixed top-0 left-0 right-0 z-50 overflow-hidden">
+    <header className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 shadow-lg fixed top-0 left-0 right-0 z-50 overflow-visible">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Animated gradient overlay */}
@@ -542,7 +542,7 @@ export default function Header() {
                 
                 {/* Dropdown Menu */}
                 {activeMenu === category && (
-                  <div className="absolute left-0 top-full mt-0 w-64 bg-gradient-to-br from-slate-900/95 via-blue-900/95 to-slate-800/95 backdrop-blur-lg shadow-2xl rounded-md py-2 border border-cyan-500/30">
+                  <div className="absolute left-0 top-full mt-0 w-64 bg-gradient-to-br from-slate-900/95 via-blue-900/95 to-slate-800/95 backdrop-blur-lg shadow-2xl rounded-md py-2 border border-cyan-500/30 z-50">
                     {services[category].items.map((item) => (
                       <a
                         key={item.name}
