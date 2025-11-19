@@ -664,13 +664,21 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
               <button
-                onClick={() => alert('Navigate to /services')}
+                onClick={() =>{ const servicesSection = document.getElementById('services');
+                  if (servicesSection) {
+                    servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}}
                 className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition text-lg font-semibold shadow-lg hover:shadow-cyan-500/30 transform hover:-translate-y-0.5"
               >
                 Explore Services
               </button>
               <button
-                onClick={() => alert('Navigate to /contact')}
+                onClick={() => {
+                  const ctaSection = document.getElementById('cta-section');
+                  if (ctaSection) {
+                    ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
                 className="border-2 border-cyan-400 text-cyan-300 px-8 py-4 rounded-lg hover:bg-cyan-500/10 backdrop-blur-sm transition text-lg font-semibold"
               >
                 Talk to Expert
