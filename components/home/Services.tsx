@@ -67,7 +67,7 @@ export default function Services() {
       if (cartItems && JSON.parse(cartItems).length > 0) {
         router.push('/checkout');
       } else {
-        router.push('/dashboard');
+        router.push('/user_dashboard');
       }
     } else {
       router.push('/login');
