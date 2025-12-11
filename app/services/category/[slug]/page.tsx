@@ -1,23 +1,90 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import { getCategoryBySlug } from '../../../../data/services';
 import Card from '../../../../components/ui/card';
+
+interface ServicePlan {
+  id: number;
+  name: string;
+  price: string;
+  features: string;
+  is_recommended: boolean;
+}
+
+interface Service {
+  id: number;
+  name: string;
+  description: string;
+  icon: string;
+  plans: ServicePlan[];
+}
+
+interface ServiceCategory {
+  id: number;
+  name: string;
+  description: string;
+  services: Service[];
+}
+
+// Map category names to icons (temporary solution until backend supports icons)
+const getCategoryIcon = (name: string) => {
+  const lowerName = name.toLowerCase();
+  if (lowerName.includes('registration')) return '🏢';
+  if (lowerName.includes('trademark') || lowerName.includes('ip')) return '™️';
+  if (lowerName.includes('gst') || lowerName.includes('tax')) return '📋';
+  if (lowerName.includes('compliance')) return '✅';
+  if (lowerName.includes('legal')) return '⚖️';
+  if (lowerName.includes('funding')) return '💰';
+  return '📂';
+};
 
 export default function CategoryPage() {
   const router = useRouter();
   const params = useParams();
-  const slug = params.slug as string;
-  
-  const category = getCategoryBySlug(slug);
+  const categoryId = params.slug as string; // Treating slug as ID
 
-  if (!category) {
+  const [category, setCategory] = useState<ServiceCategory | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchCategory = async () => {
+      if (!categoryId) return;
+
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/service-categories/${categoryId}/`);
+        if (!response.ok) {
+          throw new Error('Category not found');
+        }
+        const data = await response.json();
+        setCategory(data);
+      } catch (err) {
+        console.error('Error fetching category:', err);
+        setError('Category not found');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategory();
+  }, [categoryId]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
+  if (error || !category) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 pt-20">
         <div className="text-center px-4">
           <div className="text-6xl mb-4">🔍</div>
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Category Not Found</h1>
           <p className="text-gray-600 mb-6">
-            The category "{slug}" doesn't exist or may have been moved.
+            The category you are looking for doesn't exist or may have been moved.
           </p>
           <button
             onClick={() => router.push('/#services')}
@@ -44,20 +111,20 @@ export default function CategoryPage() {
             </svg>
             Back to All Categories
           </button>
-          
+
           {/* Category Header */}
           <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6">
             <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center text-4xl shadow-lg">
-              {category.icon}
+              {getCategoryIcon(category.name)}
             </div>
             <div className="flex-1">
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                {category.title}
+                {category.name}
               </h1>
               <p className="text-lg text-gray-600">{category.description}</p>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-2 text-sm">
             <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-semibold">
               {category.services.length} {category.services.length === 1 ? 'Service' : 'Services'} Available
@@ -67,48 +134,55 @@ export default function CategoryPage() {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {category.services.map((service) => (
-            <div
-              key={service.slug}
-              onClick={() => router.push(`/services/${service.slug}`)}
-              className="cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <Card>
-                {/* Service Icon & Title */}
-                <div className="flex items-start mb-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center text-2xl mr-3 flex-shrink-0 shadow-md">
-                    {service.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-lg text-gray-900 hover:text-blue-600 transition-colors line-clamp-2 mb-1">
-                      {service.title}
-                    </h3>
-                  </div>
-                </div>
-                
-                {/* Service Description */}
-                <p className="text-sm text-gray-600 mb-4 line-clamp-3 leading-relaxed">
-                  {service.short}
-                </p>
-                
-                {/* Price & CTA */}
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
-                  <div>
-                    <div className="text-xs text-gray-500 mb-1">Starting at</div>
-                    <div className="text-2xl font-bold text-blue-600">
-                      {service.price_display}
+          {category.services.map((service) => {
+            // Calculate starting price
+            const minPrice = service.plans && service.plans.length > 0
+              ? Math.min(...service.plans.map(p => parseFloat(p.price)))
+              : 0;
+
+            return (
+              <div
+                key={service.id}
+                onClick={() => router.push(`/services/${service.id}`)}
+                className="cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <Card>
+                  {/* Service Icon & Title */}
+                  <div className="flex items-start mb-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center text-2xl mr-3 flex-shrink-0 shadow-md">
+                      {service.icon || '📋'}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-lg text-gray-900 hover:text-blue-600 transition-colors line-clamp-2 mb-1">
+                        {service.name}
+                      </h3>
                     </div>
                   </div>
-                  <button className="text-blue-600 font-semibold hover:text-blue-700 flex items-center text-sm group">
-                    View Details
-                    <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-              </Card>
-            </div>
-          ))}
+
+                  {/* Service Description */}
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-3 leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  {/* Price & CTA */}
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
+                    <div>
+                      <div className="text-xs text-gray-500 mb-1">Starting at</div>
+                      <div className="text-2xl font-bold text-blue-600">
+                        ₹{minPrice.toLocaleString('en-IN')}
+                      </div>
+                    </div>
+                    <button className="text-blue-600 font-semibold hover:text-blue-700 flex items-center text-sm group">
+                      View Details
+                      <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </Card>
+              </div>
+            );
+          })}
         </div>
 
         {/* Bottom CTA Section */}
@@ -134,7 +208,7 @@ export default function CategoryPage() {
                 Browse All Categories
               </button>
             </div>
-            
+
             {/* Trust Indicators */}
             <div className="mt-8 pt-8 border-t border-blue-500 grid grid-cols-3 gap-6 text-center">
               <div>

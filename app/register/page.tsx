@@ -3,9 +3,9 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-export default function Register(){
+export default function Register() {
   const router = useRouter()
-  
+
   const [form, setForm] = useState({
     first_name: '',
     last_name: '',
@@ -13,21 +13,21 @@ export default function Register(){
     password: '',
     password2: ''
   })
-  
+
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  
+
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setError(null)
-    
+
     if (form.password !== form.password2) {
       setError('Passwords do not match.')
       setIsLoading(false)
       return
     }
-    
+
     try {
       const payload = {
         email: form.email,
@@ -37,20 +37,20 @@ export default function Register(){
         last_name: form.last_name,
         is_ca_firm: false
       }
-      
-      const response = await fetch('https://zestful-patience-production.up.railway.app/api/auth/register/', {
+
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
       })
-      
+
       if (!response.ok) {
         const errorData = await response.json()
         throw new Error(errorData.message || 'Failed to register')
       }
-      
+
       alert('Registration successful!')
       router.push('/login')
     } catch (err: any) {
@@ -59,7 +59,7 @@ export default function Register(){
       setIsLoading(false)
     }
   }
-  
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 px-4 py-12 pt-20">
       {/* Background Pattern */}
@@ -89,24 +89,24 @@ export default function Register(){
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   First Name
                 </label>
-                <input 
-                  value={form.first_name} 
-                  onChange={e => setForm({...form, first_name: e.target.value})} 
-                  className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" 
-                  placeholder="John" 
-                  required 
+                <input
+                  value={form.first_name}
+                  onChange={e => setForm({ ...form, first_name: e.target.value })}
+                  className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  placeholder="John"
+                  required
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Last Name
                 </label>
-                <input 
-                  value={form.last_name} 
-                  onChange={e => setForm({...form, last_name: e.target.value})} 
-                  className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" 
-                  placeholder="Doe" 
-                  required 
+                <input
+                  value={form.last_name}
+                  onChange={e => setForm({ ...form, last_name: e.target.value })}
+                  className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  placeholder="Doe"
+                  required
                 />
               </div>
             </div>
@@ -116,13 +116,13 @@ export default function Register(){
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
               </label>
-              <input 
-                value={form.email} 
-                onChange={e => setForm({...form, email: e.target.value})} 
-                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" 
-                placeholder="john@example.com" 
+              <input
+                value={form.email}
+                onChange={e => setForm({ ...form, email: e.target.value })}
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                placeholder="john@example.com"
                 type="email"
-                required 
+                required
               />
             </div>
 
@@ -131,13 +131,13 @@ export default function Register(){
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Password
               </label>
-              <input 
-                value={form.password} 
-                onChange={e => setForm({...form, password: e.target.value})} 
-                type="password" 
-                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" 
-                placeholder="••••••••" 
-                required 
+              <input
+                value={form.password}
+                onChange={e => setForm({ ...form, password: e.target.value })}
+                type="password"
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                placeholder="••••••••"
+                required
               />
             </div>
 
@@ -146,16 +146,16 @@ export default function Register(){
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Confirm Password
               </label>
-              <input 
-                value={form.password2} 
-                onChange={e => setForm({...form, password2: e.target.value})} 
-                type="password" 
-                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" 
-                placeholder="••••••••" 
-                required 
+              <input
+                value={form.password2}
+                onChange={e => setForm({ ...form, password2: e.target.value })}
+                type="password"
+                className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                placeholder="••••••••"
+                required
               />
             </div>
-            
+
             {/* Error Message */}
             {error && (
               <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm flex items-start">
@@ -167,7 +167,7 @@ export default function Register(){
             )}
 
             {/* Submit Button */}
-            <button 
+            <button
               type="submit"
               className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:bg-blue-300 disabled:cursor-not-allowed disabled:transform-none"
               disabled={isLoading}

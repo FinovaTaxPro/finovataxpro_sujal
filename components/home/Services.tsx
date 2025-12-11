@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { servicesData } from '../../data/services';
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -22,7 +21,7 @@ interface CardProps {
 
 function Card({ children, onClick, className = "" }: CardProps) {
   return (
-    <div 
+    <div
       onClick={onClick}
       className={`bg-gradient-to-br from-slate-900/90 to-blue-900/90 backdrop-blur-md rounded-xl p-6 border border-cyan-400/20 shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 ${className}`}>
       {children}
@@ -30,40 +29,69 @@ function Card({ children, onClick, className = "" }: CardProps) {
   );
 }
 
+interface ServiceCategory {
+  id: number;
+  name: string;
+  description: string;
+  icon?: string;
+  services: any[];
+}
+
+// Map category names to icons (temporary solution until backend supports icons)
+const getCategoryIcon = (name: string) => {
+  const lowerName = name.toLowerCase();
+  if (lowerName.includes('registration')) return '🏢';
+  if (lowerName.includes('trademark') || lowerName.includes('ip')) return '™️';
+  if (lowerName.includes('gst') || lowerName.includes('tax')) return '📋';
+  if (lowerName.includes('compliance')) return '✅';
+  if (lowerName.includes('legal')) return '⚖️';
+  if (lowerName.includes('funding')) return '💰';
+  return '📂';
+};
+
 export default function Services() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
-  // Convert servicesData object to array of categories
-  const categories = Object.entries(servicesData).map(([key, category]) => ({
-    title: category.title,
-    slug: category.slug,
-    description: category.description,
-    serviceCount: category.services.length,
-    icon: category.icon
-  }));
-  
+  const [categories, setCategories] = useState<ServiceCategory[]>([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setMounted(true);
     if (typeof window !== 'undefined') {
       const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
       setIsLoggedIn(loggedIn);
     }
+
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/service-categories/`);
+        if (response.ok) {
+          const data = await response.json();
+          setCategories(data.results || data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch categories:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategories();
   }, []);
-  
-  const handleCategoryClick = (categorySlug: string) => {
-    router.push(`/services/category/${categorySlug}`);
+
+  const handleCategoryClick = (categoryId: number) => {
+    router.push(`/services/category/${categoryId}`);
   };
 
   // Handle "Get Started" - check auth and redirect appropriately
   const handleGetStarted = () => {
     if (isLoggedIn) {
       // Check if there are items in cart
-      const cartItems = typeof window !== 'undefined' 
-        ? localStorage.getItem('cartItems') 
+      const cartItems = typeof window !== 'undefined'
+        ? localStorage.getItem('cartItems')
         : null;
-      
+
       if (cartItems && JSON.parse(cartItems).length > 0) {
         router.push('/checkout');
       } else {
@@ -82,7 +110,7 @@ export default function Services() {
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-blue-700 to-purple-800 animate-gradient-shift"></div>
         </div>
-        
+
         {/* Abstract geometric shapes */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
           <div className="absolute top-20 left-10 w-64 h-64 bg-cyan-500 rounded-full mix-blend-screen filter blur-3xl animate-blob"></div>
@@ -102,17 +130,17 @@ export default function Services() {
         <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-purple-400 rounded-full animate-particle-3 shadow-glow-purple"></div>
         <div className="absolute top-2/3 right-1/3 w-2 h-2 bg-cyan-300 rounded-full animate-particle-4 shadow-glow-cyan"></div>
         <div className="absolute bottom-1/4 left-2/3 w-2.5 h-2.5 bg-blue-300 rounded-full animate-particle-5 shadow-glow-blue"></div>
-        
+
         {/* Animated lines */}
         <svg className="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.5"/>
-              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.5"/>
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.5" />
             </linearGradient>
           </defs>
-          <line x1="0" y1="0" x2="100%" y2="100%" stroke="url(#lineGradient)" strokeWidth="2" className="animate-draw-line"/>
-          <line x1="100%" y1="0" x2="0" y2="100%" stroke="url(#lineGradient)" strokeWidth="2" className="animate-draw-line animation-delay-2000"/>
+          <line x1="0" y1="0" x2="100%" y2="100%" stroke="url(#lineGradient)" strokeWidth="2" className="animate-draw-line" />
+          <line x1="100%" y1="0" x2="0" y2="100%" stroke="url(#lineGradient)" strokeWidth="2" className="animate-draw-line animation-delay-2000" />
         </svg>
 
         {/* Overlapping circles */}
@@ -129,42 +157,48 @@ export default function Services() {
       {/* Content */}
       <div className="container px-4 max-w-7xl mx-auto relative z-10">
         <SectionHeading>Our Service Categories</SectionHeading>
-        
+
         {/* Category Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category) => (
-            <div 
-              key={category.slug}
-              onClick={() => handleCategoryClick(category.slug)}
-              className="cursor-pointer group transform hover:-translate-y-2 transition-all duration-300"
-            >
-              <Card>
-                <div className="flex items-start mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center text-2xl mr-3 group-hover:shadow-lg group-hover:shadow-cyan-500/50 transition-all duration-300">
-                    {category.icon}
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400"></div>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categories.map((category) => (
+              <div
+                key={category.id}
+                onClick={() => handleCategoryClick(category.id)}
+                className="cursor-pointer group transform hover:-translate-y-2 transition-all duration-300"
+              >
+                <Card>
+                  <div className="flex items-start mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center text-2xl mr-3 group-hover:shadow-lg group-hover:shadow-cyan-500/50 transition-all duration-300">
+                      {category.icon || getCategoryIcon(category.name)}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-xl text-white group-hover:text-cyan-300 transition-colors">
+                        {category.name}
+                      </h3>
+                      <p className="text-sm text-slate-400 mt-1">
+                        {category.services?.length || 0} services available
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-xl text-white group-hover:text-cyan-300 transition-colors">
-                      {category.title}
-                    </h3>
-                    <p className="text-sm text-slate-400 mt-1">
-                      {category.serviceCount} services available
-                    </p>
-                  </div>
-                </div>
-                <p className="text-sm text-slate-300 mb-4 leading-relaxed">
-                  {category.description}
-                </p>
-                <button 
-                  suppressHydrationWarning
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-cyan-500/30 transform hover:-translate-y-0.5"
-                >
-                  Explore Services →
-                </button>
-              </Card>
-            </div>
-          ))}
-        </div>
+                  <p className="text-sm text-slate-300 mb-4 leading-relaxed line-clamp-3">
+                    {category.description}
+                  </p>
+                  <button
+                    suppressHydrationWarning
+                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-cyan-500/30 transform hover:-translate-y-0.5"
+                  >
+                    Explore Services →
+                  </button>
+                </Card>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Call to Action - Updated with Dashboard Integration */}
         <div className="mt-16 text-center">
@@ -175,10 +209,10 @@ export default function Services() {
             <p className="text-slate-300 mb-6">
               Our expert team is ready to help with custom solutions tailored to your needs.
             </p>
-            
+
             {/* Buttons Container */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
+              <button
                 suppressHydrationWarning
                 onClick={() => {
                   const ctaSection = document.getElementById('cta-section');
@@ -190,10 +224,10 @@ export default function Services() {
               >
                 Contact Our Experts
               </button>
-              
+
               {/* Get Started / Dashboard Button */}
               {mounted && (
-                <button 
+                <button
                   onClick={handleGetStarted}
                   className="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-8 py-3 rounded-lg hover:from-purple-600 hover:to-pink-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-purple-500/30 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 mx-auto sm:mx-0"
                 >
@@ -225,7 +259,7 @@ export default function Services() {
               <div className="text-3xl mb-2">🛒</div>
               <h4 className="text-lg font-bold text-white mb-1">Quick Access</h4>
               <p className="text-sm text-slate-300 mb-3">View your cart</p>
-              <button 
+              <button
                 onClick={() => router.push('/checkout')}
                 className="text-cyan-400 hover:text-cyan-300 text-sm font-medium"
               >
@@ -237,7 +271,7 @@ export default function Services() {
               <div className="text-3xl mb-2">📦</div>
               <h4 className="text-lg font-bold text-white mb-1">Track Orders</h4>
               <p className="text-sm text-slate-300 mb-3">Monitor progress</p>
-              <button 
+              <button
                 onClick={() => router.push('/user_dashboard')}
                 className="text-purple-400 hover:text-purple-300 text-sm font-medium"
               >
@@ -249,7 +283,7 @@ export default function Services() {
               <div className="text-3xl mb-2">📊</div>
               <h4 className="text-lg font-bold text-white mb-1">Dashboard</h4>
               <p className="text-sm text-slate-300 mb-3">Full overview</p>
-              <button 
+              <button
                 onClick={() => router.push('/user_dashboard')}
                 className="text-green-400 hover:text-green-300 text-sm font-medium"
               >
