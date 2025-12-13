@@ -26,989 +26,76 @@ export interface ServiceCategory {
 }
 
 export const servicesData: Record<string, ServiceCategory> = {
-  'business-registration': {
-    title: 'Business Registration',
-    slug: 'business-registration',
-    icon: '🏢',
-    description: 'Complete business registration and incorporation services',
+  'registration': {
+    title: 'Registration',
+    slug: 'registration',
+    icon: '📝',
+    description: 'Essential business and tax registrations',
     services: [
       {
-        slug: 'private-limited-company',
-        title: 'Private Limited Company',
-        icon: '💼',
-        short: 'Most popular choice for startups and growing businesses',
-        price: 6999,
-        price_display: '₹6,999',
-        category: 'Business Registration',
-        description: 'Register a Private Limited Company with limited liability protection',
-        fullDescription: 'A Private Limited Company is the most preferred business structure for startups and growing businesses in India. It offers limited liability protection to shareholders, meaning personal assets are protected. The company has a separate legal identity, can own property, enter contracts, and sue or be sued in its own name. This structure is ideal for businesses planning to raise funding or scale operations.',
+        slug: 'apply-pan',
+        title: 'Apply PAN',
+        icon: '💳',
+        short: 'Permanent Account Number registration for individuals and businesses',
+        price: 499,
+        price_display: '₹499',
+        category: 'Registration',
+        description: 'Get your Permanent Account Number (PAN) hassle-free',
+        fullDescription: 'Permanent Account Number (PAN) is a ten-character alphanumeric identifier, issued in the form of a laminated "PAN card", by the Indian Income Tax Department, to any "person" who applies for it or to whom the department allot the number without an application.',
         features: [
-          'Limited liability protection for shareholders',
-          'Separate legal entity from owners',
-          'Easy to raise funding and investment',
-          'Perpetual succession regardless of ownership changes',
-          'Enhanced credibility with clients and vendors',
-          'Tax benefits and deductions available'
+          'Online application processing',
+          'Document verification',
+          'Assistance with corrections',
+          'Track status updates',
+          'Physical card delivery'
         ],
         requirements: [
-          'Minimum 2 Directors and 2 Shareholders',
-          'PAN and Aadhaar cards of all Directors',
-          'Address proof of registered office',
-          'Digital Signature Certificate (DSC) for Directors',
-          'Director Identification Number (DIN)',
-          'Passport size photographs of Directors'
-        ],
-        deliverables: [
-          'Certificate of Incorporation from MCA',
-          'Company PAN and TAN',
-          'Company Master Data',
-          'Memorandum of Association (MOA)',
-          'Articles of Association (AOA)',
-          'Share Certificates for shareholders',
-          'Certificate of Commencement of Business'
-        ],
-        timeline: '10-15 working days'
-      },
-      {
-        slug: 'llp-registration',
-        title: 'Limited Liability Partnership (LLP)',
-        icon: '👥',
-        short: 'Flexible business structure with limited liability protection',
-        price: 5999,
-        price_display: '₹5,999',
-        category: 'Business Registration',
-        description: 'Register an LLP combining benefits of partnership with limited liability',
-        fullDescription: 'Limited Liability Partnership (LLP) is a hybrid business structure that combines the flexibility of a partnership with the limited liability benefits of a company. It requires minimal compliance and is ideal for professional service providers like consultants, lawyers, and chartered accountants.',
-        features: [
-          'Limited liability protection for all partners',
-          'Flexible management structure',
-          'Lower compliance requirements than companies',
-          'No minimum capital requirement',
-          'Separate legal entity status',
-          'Easy to manage and operate'
-        ],
-        requirements: [
-          'Minimum 2 partners (no maximum limit)',
-          'PAN and Aadhaar cards of all partners',
-          'Registered office address proof',
-          'Digital Signature Certificate',
-          'DIN for designated partners',
-          'Passport size photographs'
-        ],
-        deliverables: [
-          'LLP Certificate of Incorporation',
-          'LLP Agreement',
-          'LLP PAN and TAN',
-          'LLP Identification Number (LLPIN)',
-          'Master Data from MCA'
-        ],
-        timeline: '10-15 working days'
-      },
-      {
-        slug: 'one-person-company',
-        title: 'One Person Company (OPC)',
-        icon: '👤',
-        short: 'Perfect for solo entrepreneurs wanting corporate benefits',
-        price: 4999,
-        price_display: '₹4,999',
-        category: 'Business Registration',
-        description: 'Start your business as a sole entrepreneur with corporate structure',
-        fullDescription: 'One Person Company (OPC) is a business structure introduced for solo entrepreneurs who want to enjoy the benefits of a company while being the sole owner. It provides limited liability and separate legal entity status with minimal compliance requirements.',
-        features: [
-          'Single person can own and manage',
-          'Limited liability protection',
-          'Separate legal entity',
-          'Easy compliance compared to Pvt Ltd',
-          'Nominee director facility for succession',
-          'Lower incorporation and maintenance costs'
-        ],
-        requirements: [
-          'Only 1 Director required (Indian resident)',
-          'PAN and Aadhaar card of Director',
-          'Registered office address proof',
-          'Digital Signature Certificate',
-          'Director Identification Number',
-          'Nominee Director details mandatory'
-        ],
-        deliverables: [
-          'Certificate of Incorporation',
-          'Company PAN and TAN',
-          'Memorandum of Association (MOA)',
-          'Articles of Association (AOA)',
-          'Share Certificate',
-          'Company Master Data'
-        ],
-        timeline: '7-10 working days'
-      },
-      {
-        slug: 'partnership-firm',
-        title: 'Partnership Firm Registration',
-        icon: '🤝',
-        short: 'Traditional partnership structure for shared business',
-        price: 3999,
-        price_display: '₹3,999',
-        category: 'Business Registration',
-        description: 'Register a partnership firm for shared business ownership',
-        fullDescription: 'Partnership Firm is a traditional business structure where two or more persons come together to carry on business and share profits. It is easy to form and suitable for small to medium businesses with minimal regulatory requirements.',
-        features: [
-          'Easy to form and dissolve',
-          'Shared decision making',
-          'Minimal compliance requirements',
-          'No separate tax on firm',
-          'Flexible profit sharing',
-          'Low registration cost'
-        ],
-        requirements: [
-          'Minimum 2 partners (maximum 20)',
-          'PAN cards of all partners',
-          'Address proof of partners',
-          'Registered office proof',
-          'Partnership deed',
-          'Photographs of partners'
-        ],
-        deliverables: [
-          'Partnership Deed',
-          'PAN of the firm',
-          'Registration Certificate',
-          'Firm Master Data'
-        ],
-        timeline: '5-7 working days'
-      },
-      {
-        slug: 'sole-proprietorship',
-        title: 'Sole Proprietorship Registration',
-        icon: '👨‍💼',
-        short: 'Simplest business structure for individual entrepreneurs',
-        price: 2999,
-        price_display: '₹2,999',
-        category: 'Business Registration',
-        description: 'Start your individual business with minimal formalities',
-        fullDescription: 'Sole Proprietorship is the simplest form of business organization owned and managed by a single individual. It requires minimal compliance and is ideal for small businesses, freelancers, and consultants starting their entrepreneurial journey.',
-        features: [
-          'Easiest to start and operate',
-          'Complete control over business',
-          'Minimal regulatory compliance',
-          'No separate tax filing',
-          'Low cost of formation',
-          'Quick setup process'
-        ],
-        requirements: [
-          'Proprietor PAN card',
-          'Aadhaar card',
-          'Address proof',
-          'Bank account',
-          'Business premises proof',
+          'Proof of Identity',
+          'Proof of Address',
+          'Proof of Date of Birth',
           'Photographs'
         ],
         deliverables: [
-          'Business Registration Certificate',
-          'GST Registration (if applicable)',
-          'Shop Act License (if applicable)',
-          'MSME Registration'
-        ],
-        timeline: '3-5 working days'
-      },
-      {
-        slug: 'section-8-company',
-        title: 'Section 8 Company (NGO)',
-        icon: '🏛️',
-        short: 'Non-profit organization for charitable activities',
-        price: 9999,
-        price_display: '₹9,999',
-        category: 'Business Registration',
-        description: 'Register a Section 8 company for non-profit charitable work',
-        fullDescription: 'Section 8 Company is a special type of company formed for promoting charitable objectives such as education, arts, science, religion, charity, or social welfare. It enjoys various tax benefits and exemptions under Income Tax Act.',
-        features: [
-          'Tax exemption benefits under 80G and 12A',
-          'Limited liability protection',
-          'Separate legal entity',
-          'Can receive foreign funding (with FCRA)',
-          'Enhanced credibility and trust',
-          'Perpetual succession'
-        ],
-        requirements: [
-          'Minimum 2 Directors',
-          'Minimum 2 Members',
-          'PAN and Aadhaar of Directors',
-          'Registered office proof',
-          'Digital Signature Certificate',
-          'NOC from property owner'
-        ],
-        deliverables: [
-          'Section 8 License from MCA',
-          'Certificate of Incorporation',
-          'PAN and TAN',
-          'MOA and AOA',
-          'Master Data'
-        ],
-        timeline: '20-30 working days'
-      }
-    ]
-  },
-  'trademark-ip': {
-    title: 'Trademark & IP',
-    slug: 'trademark-ip',
-    icon: '™️',
-    description: 'Protect your intellectual property and brand identity',
-    services: [
-      {
-        slug: 'trademark-registration',
-        title: 'Trademark Registration',
-        icon: '™️',
-        short: 'Protect your brand name, logo and tagline legally',
-        price: 4999,
-        price_display: '₹4,999',
-        category: 'Trademark & IP',
-        description: 'Secure legal protection for your brand with trademark registration',
-        fullDescription: 'Trademark Registration provides legal protection to your brand name, logo, and tagline. It gives you exclusive rights to use the mark and prevents others from using similar marks that could confuse customers. A registered trademark is valid for 10 years and can be renewed indefinitely.',
-        features: [
-          'Comprehensive trademark search report',
-          'Professional application drafting',
-          'Government fee included in package',
-          'Response to examination objections',
-          'TM symbol usage rights immediately',
-          'Registration certificate upon approval'
-        ],
-        requirements: [
-          'Applicant details (individual/company)',
-          'Brand name and logo design',
-          'Business category and class selection',
-          'Address proof of applicant',
-          'ID proof (PAN/Aadhaar)',
-          'Power of Attorney (if applicable)'
-        ],
-        deliverables: [
-          'Comprehensive trademark search report',
-          'Filed application with number',
-          'TM symbol usage certificate',
-          'Objection response (if required)',
-          'Trademark registration certificate',
-          '® symbol usage rights after registration'
-        ],
-        timeline: '18-24 months'
-      },
-      {
-        slug: 'trademark-objection',
-        title: 'Trademark Objection Reply',
-        icon: '📄',
-        short: 'Expert response to trademark examination objections',
-        price: 2999,
-        price_display: '₹2,999',
-        category: 'Trademark & IP',
-        description: 'Professional reply to trademark objections for successful registration',
-        fullDescription: 'When the Trademark Registry raises objections during examination, a proper response is critical for registration. Our experts draft comprehensive replies addressing all objections with legal precedents and arguments to maximize chances of trademark registration.',
-        features: [
-          'Expert analysis of objection',
-          'Comprehensive reply drafting',
-          'Supporting documents preparation',
-          'Legal precedent research',
-          'Filing with Trademark Office',
-          'Follow-up until resolution'
-        ],
-        requirements: [
-          'Trademark application number',
-          'Examination report copy',
-          'Original trademark application',
-          'Business proof documents',
-          'Usage evidence (if applicable)',
-          'POA for filing'
-        ],
-        deliverables: [
-          'Objection analysis report',
-          'Reply to examination report',
-          'Supporting documents',
-          'Filing acknowledgment',
-          'Status update reports'
+          'PAN Card (Physical)',
+          'e-PAN (Digital)'
         ],
         timeline: '7-10 working days'
       },
       {
-        slug: 'trademark-opposition',
-        title: 'Trademark Opposition',
-        icon: '⚖️',
-        short: 'File or defend trademark opposition proceedings',
-        price: 9999,
-        price_display: '₹9,999',
-        category: 'Trademark & IP',
-        description: 'Professional trademark opposition filing or defense services',
-        fullDescription: 'Trademark opposition proceedings allow interested parties to oppose trademark applications. Whether filing opposition against a conflicting mark or defending your mark, expert legal assistance is crucial for success in opposition hearings.',
-        features: [
-          'Opposition notice drafting',
-          'Evidence collection and filing',
-          'Counter statement preparation',
-          'Hearing representation',
-          'Legal strategy consultation',
-          'Complete proceeding management'
-        ],
-        requirements: [
-          'Trademark details to oppose/defend',
-          'Grounds for opposition',
-          'Supporting evidence',
-          'Business documents',
-          'Prior usage proof',
-          'Power of Attorney'
-        ],
-        deliverables: [
-          'Opposition notice/counter',
-          'Evidence compilation',
-          'Hearing representation',
-          'Legal arguments document',
-          'Final order copy'
-        ],
-        timeline: '6-12 months'
-      },
-      {
-        slug: 'trademark-renewal',
-        title: 'Trademark Renewal',
-        icon: '🔄',
-        short: 'Renew your trademark registration every 10 years',
-        price: 7999,
-        price_display: '₹7,999',
-        category: 'Trademark & IP',
-        description: 'Timely trademark renewal to maintain continuous protection',
-        fullDescription: 'Trademark registration is valid for 10 years from the date of application. Renewal must be done within 6 months before expiry or within 6 months after expiry (with additional fees) to maintain continuous protection of your brand.',
-        features: [
-          'Renewal application filing',
-          'Government fee included',
-          'Restoration if expired',
-          'Updated certificate',
-          'Next renewal reminder',
-          'Documentation support'
-        ],
-        requirements: [
-          'Trademark registration number',
-          'Original registration certificate',
-          'Updated business details',
-          'POA for renewal',
-          'Payment proof'
-        ],
-        deliverables: [
-          'Renewal application filed',
-          'Acknowledgment receipt',
-          'Renewed trademark certificate',
-          'Updated registry records',
-          '10-year protection extension'
-        ],
-        timeline: '30-45 days'
-      },
-      {
-        slug: 'copyright-registration',
-        title: 'Copyright Registration',
-        icon: '©️',
-        short: 'Protect your creative and artistic works',
-        price: 4999,
-        price_display: '₹4,999',
-        category: 'Trademark & IP',
-        description: 'Register copyright for literary, artistic, musical and software works',
-        fullDescription: 'Copyright Registration protects original creative works including books, music, software, artwork, films, and more. It provides legal evidence of ownership and exclusive rights to reproduce, distribute, and display the work. Copyright protection lasts for the lifetime of the author plus 60 years.',
-        features: [
-          'Complete application preparation and filing',
-          'Legal documentation and verification',
-          'Government filing and follow-up',
-          'Copyright registration certificate',
-          'Lifetime protection for creative works',
-          'Legal evidence of ownership'
-        ],
-        requirements: [
-          'Applicant details and ID proof',
-          'Detailed description of the work',
-          'Date of creation/publication',
-          'Sample copies of the work',
-          'ID and address proof',
-          'NOC (if applicable)'
-        ],
-        deliverables: [
-          'Copyright registration certificate',
-          'Diary number and filing receipt',
-          'Complete registration details',
-          'Legal documentation package'
-        ],
-        timeline: '6-8 months'
-      },
-      {
-        slug: 'patent-registration',
-        title: 'Patent Registration',
-        icon: '💡',
-        short: 'Protect your inventions and innovations',
-        price: 29999,
-        price_display: '₹29,999',
-        category: 'Trademark & IP',
-        description: 'Complete patent specification drafting and filing',
-        fullDescription: 'Patent Registration protects your inventions and innovations, granting you exclusive rights to make, use, and sell the invention for 20 years. Our experts help with prior art search, patent specification drafting, claims preparation, and complete filing process.',
-        features: [
-          'Prior art and patentability search',
-          'Patent specification drafting',
-          'Drawings and claims preparation',
-          'Complete filing with patent office',
-          'Response to examination objections',
-          'Patent grant certificate'
-        ],
-        requirements: [
-          'Detailed invention description',
-          'Technical drawings/diagrams',
-          'Inventor details and ID proof',
-          'Priority documents (if applicable)',
-          'Assignment deed (if applicable)',
-          'Power of Attorney'
-        ],
-        deliverables: [
-          'Patent search report',
-          'Patent specification document',
-          'Filed application number',
-          'Publication details',
-          'Patent grant certificate',
-          'Renewal reminders'
-        ],
-        timeline: '2-4 years'
-      },
-      {
-        slug: 'design-registration',
-        title: 'Design Registration',
-        icon: '🎨',
-        short: 'Protect unique visual designs of products',
-        price: 6999,
-        price_display: '₹6,999',
-        category: 'Trademark & IP',
-        description: 'Protect the aesthetic appearance and visual design of products',
-        fullDescription: 'Design Registration protects the aesthetic appearance of your products. It covers shape, configuration, pattern, or ornamentation that gives a unique appearance to the article. Design registration is valid for 10 years initially and can be extended for 5 more years.',
-        features: [
-          'Design novelty search',
-          'Application drafting with drawings',
-          'Government fee included',
-          'Filing and prosecution',
-          '10 years protection initially',
-          'Registration certificate'
-        ],
-        requirements: [
-          'Product design drawings/photos',
-          'Applicant details',
-          'Designer details',
-          'Class of design',
-          'ID and address proof',
-          'Priority documents (if any)'
-        ],
-        deliverables: [
-          'Design search report',
-          'Filed application number',
-          'Examination report response',
-          'Design registration certificate',
-          'Renewal reminders'
-        ],
-        timeline: '6-12 months'
-      }
-    ]
-  },
-  'gst-tax': {
-    title: 'GST & Tax',
-    slug: 'gst-tax',
-    icon: '📋',
-    description: 'Complete GST registration and tax compliance solutions',
-    services: [
-      {
-        slug: 'gst-registration',
-        title: 'GST Registration',
-        icon: '📋',
-        short: 'Get your GSTIN quickly with expert assistance',
+        slug: 'apply-tan',
+        title: 'Apply TAN',
+        icon: '🔢',
+        short: 'Tax Deduction and Collection Account Number registration',
         price: 999,
         price_display: '₹999',
-        category: 'GST & Tax',
-        description: 'Complete GST registration service with expert guidance',
-        fullDescription: 'GST Registration is mandatory for businesses with turnover exceeding ₹40 lakhs (₹20 lakhs for special category states). Our experts handle complete documentation and ensure quick approval from GST department. We also provide post-registration support for your first GST return filing.',
+        category: 'Registration',
+        description: 'Obtain your Tax Deduction Account Number (TAN) quickly',
+        fullDescription: 'TAN or Tax Deduction and Collection Account Number is a 10-digit alpha-numeric number required to be obtained by all persons who are responsible for deducting or collecting tax. It is mandatory to quote TAN in all TDS/TCS returns, payment challans, and certificates.',
         features: [
-          'Complete documentation assistance',
-          'GSTIN within 3-5 working days',
-          'Expert consultation included',
-          'Post-registration support',
-          'Help with first GST return filing',
-          'Annual compliance calendar provided'
+          'Application filing (Form 49B)',
+          'Error-free processing',
+          'Quick allotment',
+          'Advisory on TDS compliance'
         ],
         requirements: [
-          'PAN Card of the business entity',
-          'Aadhaar Card of proprietor/directors/partners',
-          'Business address proof (rent/ownership)',
-          'Bank account statement or passbook',
-          'Digital signature or Aadhaar OTP',
-          'Passport size photographs of authorized persons'
-        ],
-        deliverables: [
-          'GSTIN (GST Identification Number)',
-          'GST Registration Certificate',
-          'Login credentials for GST portal',
-          'Compliance checklist and guide',
-          'First year GST filing calendar'
-        ],
-        timeline: '3-5 working days'
-      },
-      {
-        slug: 'gst-return-filing-monthly',
-        title: 'GST Return Filing (Monthly)',
-        icon: '📊',
-        short: 'Professional monthly GST return filing service',
-        price: 499,
-        price_display: '₹499/month',
-        category: 'GST & Tax',
-        description: 'Monthly GST return filing - GSTR-1, GSTR-3B with reconciliation',
-        fullDescription: 'Stay compliant with monthly GST return filing service. Our experts handle GSTR-1 (sales), GSTR-3B (summary), and ensure timely filing to avoid penalties and interest. We also provide input tax credit optimization and complete reconciliation.',
-        features: [
-          'GSTR-1 and GSTR-3B filing',
-          'Purchase and sales reconciliation',
-          'Input tax credit optimization',
-          'Penalty avoidance',
-          'Expert CA assistance',
-          'Monthly compliance reports'
-        ],
-        requirements: [
-          'Sales and purchase invoices',
-          'Credit and debit notes',
-          'Bank statements',
-          'Previous returns filed',
-          'GST portal login credentials',
-          'ITC reconciliation data'
-        ],
-        deliverables: [
-          'Filed GSTR-1 with ARN',
-          'Filed GSTR-3B with ARN',
-          'Tax payment challans',
-          'Compliance status report',
-          'Monthly reconciliation statement'
-        ],
-        timeline: 'Monthly by due dates'
-      },
-      {
-        slug: 'gst-return-filing-quarterly',
-        title: 'GST Return Filing (Quarterly)',
-        icon: '📈',
-        short: 'Quarterly GST compliance for composition scheme',
-        price: 299,
-        price_display: '₹299/quarter',
-        category: 'GST & Tax',
-        description: 'Quarterly GST return filing for composition scheme taxpayers',
-        fullDescription: 'Composition scheme is available for small businesses with turnover up to ₹1.5 crores. Our service includes quarterly GSTR-4 filing with minimal compliance requirements and cost-effective pricing for small businesses.',
-        features: [
-          'GSTR-4 quarterly filing',
-          'CMP-08 challan generation',
-          'Simple compliance process',
-          'Cost-effective solution',
-          'Expert guidance',
-          'Timely filing reminders'
-        ],
-        requirements: [
-          'GSTIN details',
-          'Quarterly turnover details',
-          'Purchase invoices',
-          'Bank statements',
-          'Previous quarter returns',
-          'GST portal credentials'
-        ],
-        deliverables: [
-          'Filed GSTR-4 with ARN',
-          'CMP-08 payment challan',
-          'Quarterly summary report',
-          'Compliance certificate',
-          'Next quarter reminders'
-        ],
-        timeline: 'Quarterly by due dates'
-      },
-      {
-        slug: 'gst-annual-return',
-        title: 'GST Annual Return (GSTR-9)',
-        icon: '📄',
-        short: 'Annual GST return with complete reconciliation',
-        price: 2999,
-        price_display: '₹2,999',
-        category: 'GST & Tax',
-        description: 'Annual GST return filing with books reconciliation',
-        fullDescription: 'GSTR-9 is an annual return that consolidates all monthly/quarterly returns filed during the financial year. It includes complete reconciliation with books of accounts and identification of mismatches for correction.',
-        features: [
-          'Complete annual reconciliation',
-          'GSTR-9 preparation and filing',
-          'Data compilation from all returns',
-          'Mismatch identification and correction',
-          'Expert CA review',
-          'Audit trail maintenance'
-        ],
-        requirements: [
-          'All monthly/quarterly returns',
-          'Financial statements',
-          'Purchase and sales registers',
-          'ITC ledger',
-          'Bank statements',
-          'GST portal access'
-        ],
-        deliverables: [
-          'Filed GSTR-9 with ARN',
-          'Annual reconciliation statement',
-          'Mismatch report and corrections',
-          'Compliance certificate',
-          'Supporting documents package'
-        ],
-        timeline: '7-10 working days'
-      },
-      {
-        slug: 'gst-audit',
-        title: 'GST Audit (GSTR-9C)',
-        icon: '🔍',
-        short: 'GST audit and reconciliation by qualified CA',
-        price: 4999,
-        price_display: '₹4,999',
-        category: 'GST & Tax',
-        description: 'GST audit and reconciliation statement filing by CA',
-        fullDescription: 'GSTR-9C is mandatory for businesses with turnover exceeding ₹5 crores. It is a reconciliation statement certified by CA reconciling annual return with audited financial statements. Our qualified CAs ensure complete compliance.',
-        features: [
-          'Complete GST audit by qualified CA',
-          'GSTR-9C certification',
-          'Books of accounts reconciliation',
-          'Turnover matching with financials',
-          'ITC verification and validation',
-          'CA certificate and stamp'
-        ],
-        requirements: [
-          'Audited financial statements',
-          'GSTR-9 annual return',
-          'All monthly returns',
-          'Books of accounts',
-          'ITC register',
-          'Supporting documents'
-        ],
-        deliverables: [
-          'GSTR-9C certificate by CA',
-          'Reconciliation statement',
-          'Audit report',
-          'Filed GSTR-9C',
-          'CA certification with stamp'
-        ],
-        timeline: '10-15 working days'
-      },
-      {
-        slug: 'gst-lut-filing',
-        title: 'GST LUT Filing',
-        icon: '📝',
-        short: 'Export goods/services without paying IGST',
-        price: 499,
-        price_display: '₹499',
-        category: 'GST & Tax',
-        description: 'Letter of Undertaking for GST-free exports',
-        fullDescription: 'LUT (Letter of Undertaking) allows exporters to export goods or services without paying IGST. It must be filed annually on the GST portal and enables businesses to improve cash flow by avoiding tax payment on exports.',
-        features: [
-          'LUT form preparation',
-          'Online filing on GST portal',
-          'Annual renewal service',
-          'Documentation support',
-          'Expert guidance',
-          'Acknowledgment tracking'
-        ],
-        requirements: [
-          'GSTIN',
-          'Export business proof',
-          'Bank account details',
-          'Previous year returns',
-          'Digital signature',
+          'Organization details',
+          'PAN of the entity',
+          'Address proof',
           'Authorized signatory details'
         ],
         deliverables: [
-          'Filed LUT on GST portal',
-          'LUT reference number',
-          'Acknowledgment receipt',
-          'Validity documents',
-          'Renewal reminders'
-        ],
-        timeline: '1-2 working days'
-      },
-      {
-        slug: 'gst-refund',
-        title: 'GST Refund Filing',
-        icon: '💰',
-        short: 'Claim accumulated ITC and export refunds',
-        price: 1999,
-        price_display: '₹1,999',
-        category: 'GST & Tax',
-        description: 'GST refund claim for exports and excess ITC',
-        fullDescription: 'Claim refund for accumulated input tax credit, zero-rated supplies (exports), and excess tax paid. Our experts handle complete documentation, bank details verification, and follow-up with department for quick refund processing.',
-        features: [
-          'Refund eligibility analysis',
-          'Application preparation',
-          'Supporting documents compilation',
-          'Online filing and tracking',
-          'Department follow-up',
-          'Refund credit tracking'
-        ],
-        requirements: [
-          'GST returns filed',
-          'Export invoices and shipping bills',
-          'Bank statements',
-          'ITC ledger',
-          'Supporting invoices',
-          'Bank account details'
-        ],
-        deliverables: [
-          'Filed refund application',
-          'Application reference number',
-          'Supporting documents package',
-          'Status tracking reports',
-          'Refund receipt confirmation'
-        ],
-        timeline: '30-60 days'
-      },
-      {
-        slug: 'itr-filing',
-        title: 'Income Tax Return Filing (ITR-1)',
-        icon: '📑',
-        short: 'Professional ITR filing for salaried individuals',
-        price: 499,
-        price_display: '₹499',
-        category: 'GST & Tax',
-        description: 'ITR-1 filing for salaried individuals with Form 16',
-        fullDescription: 'Professional ITR filing service for salaried individuals. Our CAs ensure error-free filing, maximum deductions under 80C, 80D and other sections, and handle all compliance to get you maximum refunds. We also provide response to income tax notices.',
-        features: [
-          'Form 16 analysis and verification',
-          'Maximum tax-saving deductions claimed',
-          'Error-free filing guaranteed',
-          'ITR acknowledgment and e-verification',
-          'Expert Chartered Accountant review',
-          'Free response to income tax notices'
-        ],
-        requirements: [
-          'Form 16 from employer',
-          'Form 26AS from income tax portal',
-          'Bank account statements',
-          'Investment proofs (80C, 80D, etc.)',
-          'Home loan interest certificate',
-          'Capital gains statement (if applicable)'
-        ],
-        deliverables: [
-          'Filed ITR with acknowledgment number',
-          'Detailed tax computation sheet',
-          'Refund tracking assistance',
-          'ITR-V for Aadhaar verification',
-          'Complete copy of filed return'
-        ],
-        timeline: '2-3 working days'
-      },
-      {
-        slug: 'itr-2-filing',
-        title: 'Income Tax Return (ITR-2)',
-        icon: '📋',
-        short: 'ITR filing for individuals with capital gains',
-        price: 999,
-        price_display: '₹999',
-        category: 'GST & Tax',
-        description: 'ITR-2 filing for capital gains and multiple properties',
-        fullDescription: 'ITR-2 is for individuals and HUFs not having income from business or profession. Applicable when you have capital gains from property, shares, or multiple house properties. Our experts handle complex calculations and exemptions.',
-        features: [
-          'Capital gains calculation (LTCG/STCG)',
-          'Multiple house property reporting',
-          'Foreign income and assets reporting',
-          'TDS reconciliation from 26AS',
-          'Expert CA review and filing',
-          'Maximum deductions and exemptions'
-        ],
-        requirements: [
-          'Salary slips and Form 16',
-          'Property sale/purchase documents',
-          'Share trading statements and contract notes',
-          'Form 26AS',
-          'Investment proofs',
-          'Bank statements (all accounts)'
-        ],
-        deliverables: [
-          'Filed ITR-2 with acknowledgment',
-          'Capital gains computation statement',
-          'Tax computation sheet',
-          'ITR-V for verification',
-          'Refund tracking support'
-        ],
-        timeline: '3-5 working days'
-      },
-      {
-        slug: 'itr-3-filing',
-        title: 'Income Tax Return (ITR-3)',
-        icon: '💼',
-        short: 'ITR filing for business and professional income',
-        price: 1999,
-        price_display: '₹1,999',
-        category: 'GST & Tax',
-        description: 'ITR-3 filing for business income with financial statements',
-        fullDescription: 'ITR-3 is for individuals and HUFs having income from business or profession. Includes preparation of profit and loss account and balance sheet. Our CAs handle complete book keeping and ensure maximum deductions.',
-        features: [
-          'P&L and Balance Sheet preparation',
-          'Business income calculation',
-          'Presumptive taxation option (44AD/44ADA)',
-          'Professional fees reporting',
-          'Complete book keeping assistance',
-          'CA certified filing'
-        ],
-        requirements: [
-          'Business financial statements',
-          'Bank statements (business account)',
-          'Purchase and sales records',
-          'Expense vouchers and bills',
-          'GST returns (if registered)',
-          'TDS certificates'
-        ],
-        deliverables: [
-          'Filed ITR-3 with acknowledgment',
-          'Financial statements (P&L, Balance Sheet)',
-          'Tax computation sheet',
-          'Books of accounts',
-          'Filing acknowledgment and ITR-V'
+          'TAN Allotment Letter'
         ],
         timeline: '5-7 working days'
       },
       {
-        slug: 'tds-return-filing',
-        title: 'TDS Return Filing',
-        icon: '💰',
-        short: 'Quarterly TDS return filing and compliance',
-        price: 1499,
-        price_display: '₹1,499/quarter',
-        category: 'GST & Tax',
-        description: 'Quarterly TDS return filing with complete reconciliation',
-        fullDescription: 'TDS Return Filing service for businesses deducting tax at source. We handle quarterly filing of Forms 24Q, 26Q, 27Q, and 27EQ with complete reconciliation, error correction, and Form 16/16A generation.',
-        features: [
-          'All TDS forms filing (24Q, 26Q, 27Q, 27EQ)',
-          'Complete reconciliation with 26AS',
-          'Error correction and revision filing',
-          'Form 16/16A generation',
-          'TDS payment verification',
-          'Penalty avoidance'
-        ],
-        requirements: [
-          'TAN of the deductor',
-          'Details of deductees with PAN',
-          'TDS payment challans',
-          'Salary/payment details',
-          'Previous quarter returns',
-          'Digital signature'
-        ],
-        deliverables: [
-          'Filed TDS returns with token number',
-          'Form 16/16A for all deductees',
-          'Reconciliation statement',
-          'Payment verification report',
-          'Compliance certificate'
-        ],
-        timeline: 'Within quarterly due dates'
-      }
-    ]
-  },
-  'compliance': {
-    title: 'Compliance',
-    slug: 'compliance',
-    icon: '✅',
-    description: 'Annual and periodic compliance services for businesses',
-    services: [
-      {
-        slug: 'roc-annual-filing',
-        title: 'Annual ROC Filing',
-        icon: '📅',
-        short: 'MCA annual compliance for companies - AOC-4 & MGT-7',
-        price: 4999,
-        price_display: '₹4,999',
-        category: 'Compliance',
-        description: 'Complete annual ROC compliance with MCA',
-        fullDescription: 'Every registered company must file annual returns (MGT-7) and financial statements (AOC-4) with the Registrar of Companies (ROC). Our service ensures timely filing to avoid heavy penalties up to ₹5 lakhs and director disqualification.',
-        features: [
-          'AOC-4 and MGT-7 preparation and filing',
-          'Financial statement preparation',
-          'Board meeting minutes drafting',
-          'Digital signature filing',
-          'Penalty avoidance',
-          'Next year compliance calendar'
-        ],
-        requirements: [
-          'Financial statements (Balance Sheet, P&L)',
-          'Director and shareholder details',
-          'Board meeting minutes',
-          'Auditor report (if applicable)',
-          'Digital signatures of directors',
-          'Previous year filings'
-        ],
-        deliverables: [
-          'Filed AOC-4 with SRN',
-          'Filed MGT-7 with SRN',
-          'Director KYC (DIR-3 KYC)',
-          'Compliance certificate',
-          'Next year compliance calendar'
-        ],
-        timeline: '5-7 working days'
-      },
-      {
-        slug: 'fssai-license',
-        title: 'FSSAI License',
-        icon: '🍽️',
-        short: 'Food business license registration and renewal',
-        price: 2999,
-        price_display: '₹2,999',
-        category: 'Compliance',
-        description: 'FSSAI license for food businesses - registration to state license',
-        fullDescription: 'FSSAI (Food Safety and Standards Authority of India) license is mandatory for all food businesses including manufacturing, storage, distribution, and retail. We help you obtain the appropriate license (Basic/State/Central) based on your business size and type.',
-        features: [
-          'License type consultation',
-          'Complete application filing',
-          'Documentation support',
-          'Inspection assistance',
-          'License certificate',
-          'Renewal reminders'
-        ],
-        requirements: [
-          'Business registration proof',
-          'Food category details',
-          'Premises layout plan',
-          'ID and address proof',
-          'List of food products',
-          'NOC from municipality (if required)'
-        ],
-        deliverables: [
-          'FSSAI registration/license number',
-          'License certificate (14-digit number)',
-          'Food safety plan',
-          'Compliance guidelines',
-          'Renewal calendar'
-        ],
-        timeline: '15-30 working days'
-      },
-      {
-        slug: 'import-export-code',
-        title: 'Import Export Code (IEC)',
-        icon: '🌍',
-        short: 'Mandatory code for import/export business',
-        price: 2499,
-        price_display: '₹2,499',
-        category: 'Compliance',
-        description: 'IEC registration for international trade',
-        fullDescription: 'Import Export Code (IEC) is a 10-digit code mandatory for any business engaged in importing or exporting goods and services. It is issued by the Directorate General of Foreign Trade (DGFT) and has lifetime validity with no renewal required.',
-        features: [
-          'IEC number within 7 days',
-          'Complete documentation support',
-          'DGFT filing and follow-up',
-          'Digital certificate',
-          'No renewal required - lifetime validity',
-          'Bank and customs registration'
-        ],
-        requirements: [
-          'Business PAN card',
-          'Bank certificate with IFSC and SWIFT code',
-          'Cancelled cheque',
-          'Business address proof',
-          'ID proof of proprietor/directors',
-          'Business registration documents'
-        ],
-        deliverables: [
-          '10-digit IEC number',
-          'IEC certificate from DGFT',
-          'Digital certificate download',
-          'Bank registration confirmation'
-        ],
-        timeline: '5-7 working days'
-      },
-      {
-        slug: 'msme-registration',
-        title: 'MSME/Udyam Registration',
+        slug: 'udyam-registration',
+        title: 'UDYAM Registration',
         icon: '🏭',
         short: 'Get MSME benefits, loans and subsidies',
         price: 999,
         price_display: '₹999',
-        category: 'Compliance',
+        category: 'Registration',
         description: 'Udyam registration for MSME benefits',
         fullDescription: 'MSME (Udyam) Registration provides recognition and numerous benefits to micro, small, and medium enterprises including priority sector lending, collateral-free loans, subsidies on electricity bills, patent registration, and eligibility for government tenders.',
         features: [
@@ -1036,109 +123,2211 @@ export const servicesData: Record<string, ServiceCategory> = {
         timeline: '1-2 working days'
       },
       {
-        slug: 'iso-certification',
-        title: 'ISO Certification',
-        icon: '🏆',
-        short: 'ISO 9001, 14001, 27001 quality certification',
-        price: 14999,
-        price_display: '₹14,999',
-        category: 'Compliance',
-        description: 'International quality management system certification',
-        fullDescription: 'ISO Certification demonstrates your commitment to quality (ISO 9001), environmental management (ISO 14001), or information security (ISO 27001). We provide complete certification assistance including gap analysis, documentation, training, internal audit, and certification body coordination.',
+        slug: 'digital-signature',
+        title: 'Digital Signature',
+        icon: '🔐',
+        short: 'Class 3 Digital Signature Certificate (DSC) for e-filing',
+        price: 1499,
+        price_display: '₹1,499',
+        category: 'Registration',
+        description: 'Secure Class 3 Digital Signature Certificate for individuals and organizations',
+        fullDescription: 'A Digital Signature Certificate (DSC) allows you to sign documents digitally. It is mandatory for various government filings including MCA, GST, Income Tax, and e-tenders. faster, safer, and cleaner way of signing documents.',
         features: [
-          'Gap analysis and assessment',
-          'Complete documentation preparation',
-          'Process implementation support',
-          'Internal audit training',
-          'Certification body coordination',
-          'Post-certification surveillance support'
+          'Class 3 DSC (Highest security)',
+          'Signature + Encryption',
+          'USB Token included',
+          'Paperless approval process',
+          'Valid for 2 years'
         ],
         requirements: [
-          'Business registration documents',
-          'Organizational structure',
-          'Existing process documentation',
-          'Quality manuals (if any)',
-          'Employee training records',
-          'Management commitment letter'
+          'Aadhaar Card',
+          'PAN Card',
+          'Mobile number linked with Aadhaar',
+          'Email ID',
+          'Video verification'
         ],
         deliverables: [
-          'Complete ISO documentation set',
-          'Employee training materials',
-          'Internal audit report',
-          'ISO certificate (3 years validity)',
-          'Surveillance audit support'
+          'Digital Signature Certificate',
+          'USB Token'
         ],
-        timeline: '2-3 months'
+        timeline: '1-2 working days'
       },
       {
-        slug: 'professional-tax-registration',
-        title: 'Professional Tax Registration',
-        icon: '💳',
-        short: 'State-level tax registration for employers',
-        price: 1999,
-        price_display: '₹1,999',
-        category: 'Compliance',
-        description: 'Professional tax registration for businesses with employees',
-        fullDescription: 'Professional Tax is a state-level tax levied on professions, trades, and employment. Businesses with employees need to register and deduct professional tax from salaries. Rates and applicability vary by state.',
+        slug: '12a-80g-registration',
+        title: '12A and 80G Registration',
+        icon: '🎗️',
+        short: 'Tax exemption certificates for NGOs and Trusts',
+        price: 14999,
+        price_display: '₹14,999',
+        category: 'Registration',
+        description: 'Obtain 12A and 80G registration for tax benefits',
+        fullDescription: '12A registration allows an NGO to get income tax exemption on its surplus income. 80G registration allows donors to claim tax deduction on donations made to the NGO. These are critical for the financial sustainability of any non-profit organization.',
         features: [
-          'PT registration certificate',
-          'Monthly/annual return filing support',
-          'Compliance calendar',
-          'Penalty avoidance',
-          'Expert guidance on rates',
-          'Renewal assistance'
+          'Form 10A filing',
+          'Documentation drafting',
+          'Department follow-up',
+          'Query resolution',
+          'Provisional and final registration'
         ],
         requirements: [
-          'Business registration proof',
-          'PAN card',
-          'Address proof',
-          'List of employees',
-          'Salary register',
-          'Bank details'
+          'Trust Deed / Bylaws / MOA & AOA',
+          'PAN of NGO',
+          'Trustee details',
+          'Financial statements',
+          'Activity report'
         ],
         deliverables: [
-          'PT registration certificate',
-          'PT enrollment number',
-          'Compliance guidelines by state',
-          'Filing calendar',
-          'Certificate copy'
+          '12A Registration Certificate',
+          '80G Registration Certificate'
+        ],
+        timeline: '30-45 working days'
+      },
+      {
+        slug: 'import-export-code',
+        title: 'Import Export Code (IEC)',
+        icon: '🌍',
+        short: 'Mandatory code for import/export business',
+        price: 2499,
+        price_display: '₹2,499',
+        category: 'Registration',
+        description: 'IEC registration for international trade',
+        fullDescription: 'Import Export Code (IEC) is a 10-digit code mandatory for any business engaged in importing or exporting goods and services. It is issued by the Directorate General of Foreign Trade (DGFT) and has lifetime validity with no renewal required.',
+        features: [
+          'IEC number within 7 days',
+          'Complete documentation support',
+          'DGFT filing and follow-up',
+          'Digital certificate',
+          'No renewal required - lifetime validity',
+          'Bank and customs registration'
+        ],
+        requirements: [
+          'Business PAN card',
+          'Bank certificate with IFSC and SWIFT code',
+          'Cancelled cheque',
+          'Business address proof',
+          'ID proof of proprietor/directors',
+          'Business registration documents'
+        ],
+        deliverables: [
+          '10-digit IEC number',
+          'IEC certificate from DGFT',
+          'Digital certificate download',
+          'Bank registration confirmation'
+        ],
+        timeline: '5-7 working days'
+      },
+      {
+        slug: 'esi-registration',
+        title: 'ESI Registration',
+        icon: '🏥',
+        short: 'Employee State Insurance registration for employee welfare',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'Registration',
+        description: 'Register for ESI to provide social security to employees',
+        fullDescription: 'ESI Registration is mandatory for entities employing 10 or more persons (20 in some states) with wages up to ₹21,000. It provides medical, cash, maternity, disability, and dependent benefits to employees.',
+        features: [
+          'Employer registration',
+          'Employee data upload',
+          'ESI code generation',
+          'Compliance guidance',
+          'Document management'
+        ],
+        requirements: [
+          'Business Registration Certificate',
+          'PAN Card',
+          'GST Certificate',
+          'Employee details',
+          'Bank details',
+          'Address proof'
+        ],
+        deliverables: [
+          'ESI Code Number (17 digits)',
+          'Registration Letter',
+          'Employee Insurance Numbers'
         ],
         timeline: '7-10 working days'
       },
       {
-        slug: 'shops-establishment-act',
-        title: 'Shops and Establishment License',
-        icon: '🏪',
-        short: 'Mandatory license for commercial establishments',
-        price: 1999,
-        price_display: '₹1,999',
-        category: 'Compliance',
-        description: 'Shop Act license registration for commercial premises',
-        fullDescription: 'Shops and Establishment Act registration is mandatory for all commercial establishments including shops, offices, restaurants, and hotels. It regulates working hours, leave policies, and employment conditions.',
+        slug: 'pf-registration',
+        title: 'PF Registration',
+        icon: '💰',
+        short: 'Provident Fund registration for employee future security',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'Registration',
+        description: 'EPF registration for organizations',
+        fullDescription: 'Employees Provident Fund (EPF) registration is mandatory for organizations with 20 or more employees. It is a retirement benefit scheme helping employees save a fraction of their salary every month, which can be used upon retirement.',
         features: [
-          'Shop Act license registration',
-          'State-specific compliance',
-          'Employee welfare compliance',
-          'Renewal reminders',
-          'Display certificate',
-          'Legal validity'
+          'Establishment registration',
+          'DSC registration',
+          'Document verification',
+          'Code number allotment',
+          'Compliance advisory'
+        ],
+        requirements: [
+          'Business PAN',
+          'Certificate of Incorporation/Registration',
+          'Director/Partner details',
+          'Employee details',
+          'Bank proof',
+          'Digital Signature'
+        ],
+        deliverables: [
+          'PF Code Number',
+          'Registration Certificate',
+          'Access to Employer Portal'
+        ],
+        timeline: '5-7 working days'
+      },
+      {
+        slug: 'fssai-license',
+        title: 'FSSAI Registration and License',
+        icon: '🍽️',
+        short: 'Food business license registration',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'Registration',
+        description: 'FSSAI license for food businesses',
+        fullDescription: 'FSSAI (Food Safety and Standards Authority of India) license is mandatory for all food businesses including manufacturing, storage, distribution, and retail. We help you obtain the appropriate license (Basic/State/Central) based on your business size and type.',
+        features: [
+          'License type consultation',
+          'Complete application filing',
+          'Documentation support',
+          'Inspection assistance',
+          'License certificate',
+          'Renewal reminders'
         ],
         requirements: [
           'Business registration proof',
-          'Premises address proof',
-          'Rent agreement/ownership documents',
-          'Employer and employee details',
-          'PAN and Aadhaar',
-          'Photographs'
+          'Food category details',
+          'Premises layout plan',
+          'ID and address proof',
+          'List of food products',
+          'NOC from municipality (if required)'
         ],
         deliverables: [
-          'Shops and Establishment certificate',
-          'Registration number',
-          'Display board certificate',
-          'Compliance guidelines',
-          'Renewal calendar'
+          'FSSAI registration/license number',
+          'License certificate',
+          'Food safety plan',
+          'Compliance guidelines'
+        ],
+        timeline: '15-30 working days'
+      },
+      {
+        slug: 'trade-registration',
+        title: 'Trade Registration',
+        icon: '🏪',
+        short: 'Trade license for operating business',
+        price: 3999,
+        price_display: '₹3,999',
+        category: 'Registration',
+        description: 'Municipal trade license registration',
+        fullDescription: 'A Trade License is a document/certificate that gives the permission to the applicant (person seeking to open a business) to commence a particular trade or business in a particular area/location.',
+        features: [
+          'Application filing with municipal corporation',
+          'Document processing',
+          'Fee payment assistance',
+          'Follow-up with authorities',
+          'License issuance'
+        ],
+        requirements: [
+          'Premises proof (Rent agreement/Ownership)',
+          'ID Proof of applicant',
+          'PAN Card',
+          'Business details',
+          'NOC from neighbors (if applicable)'
+        ],
+        deliverables: [
+          'Trade License Certificate'
+        ],
+        timeline: '15-20 working days'
+      },
+      {
+        slug: 'startup-registration',
+        title: 'Startup',
+        icon: '🚀',
+        short: 'Startup India recognition certificate',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'Registration',
+        description: 'Registration under Startup India scheme',
+        fullDescription: 'Get recognized as a Startup by DPIIT to avail various benefits such as tax exemptions, self-certification compliance, and easier public procurement norms. We assist in the complete registration process.',
+        features: [
+          'Eligibility check',
+          'Profile creation',
+          'Application drafting',
+          'Document upload',
+          'Recognition certificate',
+          'Tax exemption application support'
+        ],
+        requirements: [
+          'Certificate of Incorporation',
+          'Write-up on nature of business',
+          'Pitch deck / Website link',
+          'Director details',
+          'Patent/Trademark details (if any)'
+        ],
+        deliverables: [
+          'DPIIT Recognition Certificate',
+          'Startup India Profile'
         ],
         timeline: '10-15 working days'
+      }
+    ]
+  },
+  'loan': {
+    title: 'Loan',
+    slug: 'loan',
+    icon: '💰',
+    description: 'Financial assistance and loan services',
+    services: [
+      {
+        slug: 'msme-loan',
+        title: 'MSME Loan',
+        icon: '🏭',
+        short: 'Collateral-free loans for small businesses',
+        price: 3999,
+        price_display: '₹3,999',
+        category: 'Loan',
+        description: 'Assistance for MSME loans',
+        fullDescription: 'We assist MSMEs in obtaining loans under various government schemes like MUDRA and CGTMSE. These loans are often collateral-free and come with attractive interest rates to boost small businesses.',
+        features: [
+          'Collateral-free options',
+          'Government scheme benefits',
+          'Low interest rates',
+          'Documentation support',
+          'Fast processing'
+        ],
+        requirements: [
+          'Udyam Registration',
+          'Business Plan',
+          'KYC Documents',
+          'Bank Statements',
+          'ITR (if available)'
+        ],
+        deliverables: [
+          'Loan Application Submission',
+          'Project Report',
+          'Sanction Letter assistance'
+        ],
+        timeline: '15-20 working days'
+      },
+      {
+        slug: 'car-loan',
+        title: 'Car Loan',
+        icon: '🚗',
+        short: 'Get the best deal on your car loan',
+        price: 999,
+        price_display: '₹999',
+        category: 'Loan',
+        description: 'Auto loan assistance',
+        fullDescription: 'We help you find and apply for the best car loan offers from top banks. Compare interest rates, processing fees, and tenure to choose the right loan for your new or used car.',
+        features: [
+          'Compare multiple banks',
+          'Low interest rates',
+          'Quick approval',
+          'Minimal documentation',
+          'Doorstep service'
+        ],
+        requirements: [
+          'Income Proof',
+          'Identity Proof',
+          'Address Proof',
+          'Vehicle Quotation',
+          'Bank Statements'
+        ],
+        deliverables: [
+          'Loan Sanction',
+          'Disbursement Support'
+        ],
+        timeline: '3-5 working days'
+      },
+      {
+        slug: 'home-loan',
+        title: 'Home Loan',
+        icon: '🏠',
+        short: 'Financing for your dream home',
+        price: 1999,
+        price_display: '₹1,999',
+        category: 'Loan',
+        description: 'Home loan consultation and application',
+        fullDescription: 'Expert assistance for home loans. Whether you are buying a flat, constructing a house, or renovating, we guide you through the process, helping you get the lowest interest rates and maximum eligibility.',
+        features: [
+          'Lowest interest rates',
+          'Maximum loan eligibility',
+          'Balance transfer options',
+          'Legal check support',
+          'Pradhan Mantri Awas Yojana benefits'
+        ],
+        requirements: [
+          'Property Documents',
+          'Income Documents',
+          'KYC Documents',
+          'Bank Statements',
+          'Employment Proof'
+        ],
+        deliverables: [
+          'Loan Sanction Letter',
+          'Legal clearance support'
+        ],
+        timeline: '10-15 working days'
+      },
+      {
+        slug: 'business-loan',
+        title: 'Business Loan',
+        icon: '💼',
+        short: 'Funds to grow your business',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'Loan',
+        description: 'Unsecured business loans for expansion',
+        fullDescription: 'Get unsecured business loans to expand your operations, purchase inventory, or manage cash flow. We work with multiple banks and NBFCs to get you the capital you need without collateral.',
+        features: [
+          'Unsecured loans',
+          'Flexible repayment',
+          'Quick disbursal',
+          'Minimal paperwork',
+          'High loan amount'
+        ],
+        requirements: [
+          'Business Registration',
+          'ITR for 2-3 years',
+          'Bank Statements',
+          'Business Proof',
+          'KYC of owners'
+        ],
+        deliverables: [
+          'Loan Approval',
+          'Disbursement'
+        ],
+        timeline: '7-10 working days'
+      },
+      {
+        slug: 'personal-loan',
+        title: 'Personal Loan',
+        icon: '👤',
+        short: 'Instant personal loans for your needs',
+        price: 999,
+        price_display: '₹999',
+        category: 'Loan',
+        description: 'Personal loan assistance',
+        fullDescription: 'Quick and easy personal loans for medical emergencies, travel, wedding, or any other personal requirement. We help you choose the lender with the best terms and fastest processing.',
+        features: [
+          'Instant approval options',
+          'No collateral',
+          'Flexible tenure',
+          'Minimum documentation',
+          'Competitive rates'
+        ],
+        requirements: [
+          'Salary Slips / Income Proof',
+          'Bank Statements',
+          'KYC Documents',
+          'Employment Proof'
+        ],
+        deliverables: [
+          'Loan Sanction',
+          'Cash in account'
+        ],
+        timeline: '2-4 working days'
+      }
+    ]
+  },
+  'compliance': {
+    title: 'Compliance',
+    slug: 'compliance',
+    icon: '✅',
+    description: 'Regular compliance and filing services',
+    services: [
+      {
+        slug: 'bookkeeping',
+        title: 'Bookkeeping',
+        icon: '📚',
+        short: 'Maintain your accounts professionally',
+        price: 2999,
+        price_display: '₹2,999/month',
+        category: 'Compliance',
+        description: 'Professional bookkeeping services',
+        fullDescription: 'Outsource your bookkeeping to experts. We maintain your ledgers, accounts payable/receivable, and bank reconciliation ensuring your books are always up-to-date and ready for tax filing.',
+        features: [
+          'Daily/Weekly transaction recording',
+          'Bank reconciliation',
+          'Financial reporting',
+          'Cloud accounting software',
+          'Vendor management'
+        ],
+        requirements: [
+          'Bank and Credit Card statements',
+          'Invoices and Bills',
+          'Expense receipts',
+          'Payroll data'
+        ],
+        deliverables: [
+          'Updated Books of Accounts',
+          'Monthly Financial Statements',
+          'Profit & Loss Report'
+        ],
+        timeline: 'Monthly'
+      },
+      {
+        slug: 'proprietorship-compliance',
+        title: 'Proprietorship Compliance',
+        icon: '👤',
+        short: 'Annual compliance for sole proprietors',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'Compliance',
+        description: 'Complete compliance handling for proprietorships',
+        fullDescription: 'Proprietorships need to manage income tax and GST filings. We provide a comprehensive package to handle all statutory compliances for your sole proprietorship business.',
+        features: [
+          'ITR Filing',
+          'GST Return Filing',
+          'TDS Compliance (if applicable)',
+          'Financial Statement preparation',
+          'Tax planning'
+        ],
+        requirements: [
+          'Bank statements',
+          'Sales/Purchase details',
+          'Expense proofs',
+          'GST login'
+        ],
+        deliverables: [
+          'Filed Returns',
+          'Computation of Income',
+          'Compliance Certificate'
+        ],
+        timeline: 'Annually'
+      },
+      {
+        slug: 'partnership-compliance',
+        title: 'Partnership Compliance',
+        icon: '🤝',
+        short: 'Annual compliance for partnership firms',
+        price: 6999,
+        price_display: '₹6,999',
+        category: 'Compliance',
+        description: 'Compliance services for partnership firms',
+        fullDescription: 'Partnership firms are required to file income tax returns (ITR-5) and maintain proper books of accounts. We handle all annual compliances including tax audit assistance if turnover exceeds limits.',
+        features: [
+          'ITR-5 Filing',
+          'Financial Statements',
+          'Tax Audit Support',
+          'GST Compliance',
+          'Partner Salary calculations'
+        ],
+        requirements: [
+          'Partnership Deed',
+          'Financial data',
+          'Bank statements',
+          'Partner details'
+        ],
+        deliverables: [
+          'Filed ITR',
+          'Balance Sheet & P&L',
+          'Tax Audit Report (if applicable)'
+        ],
+        timeline: 'Annually'
+      },
+      {
+        slug: 'esi-return-filing',
+        title: 'ESI Return Filing',
+        icon: '🏥',
+        short: 'Monthly ESI contribution filing',
+        price: 999,
+        price_display: '₹999/month',
+        category: 'Compliance',
+        description: 'Timely filing of ESI returns',
+        fullDescription: 'Employers registered under ESI must file monthly contributions and half-yearly returns. We ensure timely filing to avoid penalties and interest, ensuring your employees get their benefits.',
+        features: [
+          'Monthly contribution generation',
+          'Challan creation',
+          'Return filing',
+          'Employee data management',
+          'Compliance alerts'
+        ],
+        requirements: [
+          'Wages data',
+          'Attendance records',
+          'ESI login credentials',
+          'Employee details'
+        ],
+        deliverables: [
+          'Filed ESI Return',
+          'Payment Challan',
+          'Contribution History'
+        ],
+        timeline: 'Monthly'
+      },
+      {
+        slug: 'pf-return-filing',
+        title: 'PF Return Filing',
+        icon: '💰',
+        short: 'Monthly EPF return filing service',
+        price: 999,
+        price_display: '₹999/month',
+        category: 'Compliance',
+        description: 'Monthly PF Electronic Challan Return (ECR) filing',
+        fullDescription: 'Timely filing of PF returns is crucial for employers. We handle the preparation and filing of the monthly Electronic Challan cum Return (ECR) and generation of payment challans.',
+        features: [
+          'ECR preparation',
+          'UAN generation for new employees',
+          'Challan generation',
+          'KYC update assistance',
+          'Withdrawal support'
+        ],
+        requirements: [
+          'Salary sheet',
+          'PF login credentials',
+          'New joiner details',
+          'Exit details'
+        ],
+        deliverables: [
+          'Filed PF Return (ECR)',
+          'Payment Receipt',
+          'Monthly Report'
+        ],
+        timeline: 'Monthly'
+      },
+      {
+        slug: 'hr-payroll-services',
+        title: 'HR & Payroll Services',
+        icon: '👥',
+        short: 'End-to-end payroll management',
+        price: 100,
+        price_display: '₹100/emp',
+        category: 'Compliance',
+        description: 'Complete payroll outsourcing',
+        fullDescription: 'We manage your entire payroll process including salary calculation, tax deduction (TDS), PF/ESI computations, payslip generation, and transfer advice. Focus on your business while we handle your workforce payments.',
+        features: [
+          'Salary processing',
+          'Payslip generation',
+          'Tax calculation',
+          'Statutory compliance (PF/ESI/PT)',
+          'Leave management'
+        ],
+        requirements: [
+          'Employee Master Data',
+          'Attendance inputs',
+          'Salary structure',
+          'Investment declarations'
+        ],
+        deliverables: [
+          'Monthly Payslips',
+          'Salary Sheet',
+          'Tax Reports',
+          'Bank Transfer File'
+        ],
+        timeline: 'Monthly'
+      },
+      {
+        slug: 'fssai-renewal',
+        title: 'FSSAI Renewal',
+        icon: '🍽️',
+        short: 'Renew your food license',
+        price: 1999,
+        price_display: '₹1,999',
+        category: 'Compliance',
+        description: 'Renewal of FSSAI Registration or License',
+        fullDescription: 'FSSAI License is valid for 1 to 5 years. It must be renewed before expiry to continue food business operations. We assist in filing the renewal application with necessary declarations.',
+        features: [
+          'Renewal application filing',
+          'Document verification',
+          'Avoidance of late fees',
+          'Extended validity',
+          'Compliance check'
+        ],
+        requirements: [
+          'Existing License',
+          'Address Proof',
+          'ID Proof',
+          'Declaration of valid details'
+        ],
+        deliverables: [
+          'Renewed FSSAI Certificate'
+        ],
+        timeline: '10-15 working days'
+      },
+      {
+        slug: 'roc-annual-filing',
+        title: 'Annual ROC Filing',
+        icon: '📅',
+        short: 'MCA annual compliance for companies',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'Compliance',
+        description: 'Complete annual ROC compliance with MCA',
+        fullDescription: 'Every registered company must file annual returns (MGT-7) and financial statements (AOC-4) with the Registrar of Companies (ROC). Our service ensures timely filing to avoid heavy penalties up to ₹5 lakhs.',
+        features: [
+          'AOC-4 and MGT-7 filing',
+          'Financial statement preparation',
+          'Board meeting minutes',
+          'Penalty avoidance',
+          'Director KYC'
+        ],
+        requirements: [
+          'Financial statements',
+          'Director details',
+          'Board minutes',
+          'DSC of directors'
+        ],
+        deliverables: [
+          'Filed AOC-4 and MGT-7',
+          'Compliance Certificate',
+          'Acknowledgement Receipts'
+        ],
+        timeline: '5-7 working days'
+      }
+    ]
+  },
+  'mca': {
+    title: 'MCA',
+    slug: 'mca',
+    icon: '🏛️',
+    description: 'Ministry of Corporate Affairs filings and services',
+    services: [
+        {
+        slug: 'inc-20a',
+        title: 'Commencement of Business (INC-20A)',
+        icon: '🚀',
+        short: 'File declaration of commencement of business',
+        price: 1999,
+        price_display: '₹1,999',
+        category: 'MCA',
+        description: 'Mandatory filing for new companies',
+        fullDescription: 'Every company incorporated after November 2018 must file form INC-20A within 180 days of incorporation. It declares that the shareholders have paid the share capital value.',
+        features: [
+          'Form INC-20A filing',
+          'Professional certification',
+          'Challan generation',
+          'Compliance status update'
+        ],
+        requirements: [
+          'Bank statement showing capital infusion',
+          'Photograph of registered office',
+          'Certificate of Incorporation'
+        ],
+        deliverables: [
+          'Approved INC-20A',
+          'Challan receipt'
+        ],
+        timeline: '3-5 working days'
+      },
+      {
+        slug: 'winding-up-company',
+        title: 'Winding Up-Company',
+        icon: '🔒',
+        short: 'Close your private limited company legally',
+        price: 14999,
+        price_display: '₹14,999',
+        category: 'MCA',
+        description: 'Process to close a company (Strike Off)',
+        fullDescription: 'If your company is not carrying on any business, it is better to close it legally to avoid annual compliance costs and penalties. We assist in filing Form STK-2 for striking off the company name.',
+        features: [
+          'STK-2 preparation and filing',
+          'Affidavits and Indemnity Bonds',
+          'Statement of Accounts preparation',
+          'Professional certification'
+        ],
+        requirements: [
+          'Statement of Accounts',
+          'Indemnity Bond by Directors',
+          'Affidavit by Directors',
+          'Bank closure certificate'
+        ],
+        deliverables: [
+          'Filed STK-2',
+          'Strike off notice'
+        ],
+        timeline: '30-60 working days'
+      },
+       {
+        slug: 'winding-up-llp',
+        title: 'Winding Up-LLP',
+        icon: '🔒',
+        short: 'Legally close your LLP',
+        price: 9999,
+        price_display: '₹9,999',
+        category: 'MCA',
+        description: 'Closure of Limited Liability Partnership',
+        fullDescription: 'Process to close a defunct LLP by filing Form 24. We handle the complete documentation and filing process to legally shut down your LLP.',
+        features: [
+          'Form 24 preparation',
+          'Statement of Accounts',
+          'Affidavits from Partners',
+          'Professional certification'
+        ],
+        requirements: [
+          'Financial Statement (Nil assets/liabilities)',
+          'Consent of all partners',
+          'Affidavits and Indemnity',
+          'ITR acknowledgement'
+        ],
+        deliverables: [
+          'Filed Form 24',
+          'Closure confirmation'
+        ],
+        timeline: '30-45 working days'
+      },
+      {
+        slug: 'share-transfer',
+        title: 'Share Transfer',
+        icon: '🔄',
+        short: 'Transfer shares between shareholders',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'MCA',
+        description: 'Formalize transfer of company shares',
+        fullDescription: 'Transfer of shares in a private limited company requires execution of Share Transfer Deed (SH-4) and payment of stamp duty. We help you with the documentation and board resolutions.',
+        features: [
+          'SH-4 Deed drafting',
+          'Stamp duty calculation',
+          'Board Resolution drafting',
+          'Share Certificate endorsement'
+        ],
+        requirements: [
+          'Share Certificates',
+          'Transferor and Transferee details',
+          'Consideration amount',
+          'Board approval'
+        ],
+        deliverables: [
+          'Executed Transfer Deed',
+          'Board Resolution',
+          'Updated Share Certificates'
+        ],
+        timeline: '3-5 working days'
+      },
+      {
+        slug: 'authorized-capital-increase',
+        title: 'Authorized Capital Increase',
+        icon: '📈',
+        short: 'Increase your company\'s capital capacity',
+        price: 3999,
+        price_display: '₹3,999',
+        category: 'MCA',
+        description: 'File Form SH-7 to increase authorized capital',
+        fullDescription: 'To issue more shares (investment), you may need to increase the authorized capital of the company. This involves conducting a meeting, passing a resolution, and filing Form SH-7 with the ROC.',
+        features: [
+          'EGM Notice and Resolution',
+          'Form SH-7 filing',
+          'MOA alteration',
+          'Compliance advisory'
+        ],
+        requirements: [
+          'Existing MOA/AOA',
+          'Proposed capital amount',
+          'Shareholder breakdown'
+        ],
+        deliverables: [
+          'Approved SH-7',
+          'Updated Company Master Data',
+          'Altered MOA'
+        ],
+        timeline: '5-7 working days'
+      },
+      {
+        slug: 'aoa-amendment',
+        title: 'AOA Amendment',
+        icon: '📝',
+        short: 'Alter Articles of Association',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'MCA',
+        description: 'Change company rules and regulations',
+        fullDescription: 'Alteration of Articles of Association might be needed for changing internal rules, adopting new regulations, or conversion of company type. We handle resolution drafting and MGT-14 filing.',
+        features: [
+          'Special Resolution drafting',
+          'Form MGT-14 filing',
+          'Altered AOA drafting',
+          'ROC approval support'
+        ],
+        requirements: [
+          'Existing AOA',
+          'Proposed changes',
+          'Board meeting details'
+        ],
+        deliverables: [
+          'Filed MGT-14',
+          'Updated AOA'
+        ],
+        timeline: '7-10 working days'
+      },
+      {
+        slug: 'moa-amendment',
+        title: 'MOA Amendment',
+        icon: '📝',
+        short: 'Alter Memorandum of Association',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'MCA',
+        description: 'Change company objectives or capital clause',
+        fullDescription: 'MOA alteration is required for changing the main objects of the company, name change, or capital clause change. We assist in the complete legal process.',
+        features: [
+          'Special Resolution drafting',
+          'Form MGT-14 filing',
+          'Altered MOA drafting',
+          'Process guidance'
+        ],
+        requirements: [
+          'Existing MOA',
+          'Proposed changes',
+          'Shareholder consent'
+        ],
+        deliverables: [
+          'Filed MGT-14',
+          'Updated MOA'
+        ],
+        timeline: '7-10 working days'
+      },
+      {
+        slug: 'dormant-status-filing',
+        title: 'Dormant Status Filing',
+        icon: '💤',
+        short: 'Apply for dormant status (MSC-1)',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'MCA',
+        description: 'Obtain dormant status for inactive companies',
+        fullDescription: 'If your company has no significant accounting transactions, you can apply for "Dormant Status" to reduce compliance burden. It saves you from being struck off and allows maintaining the company with minimal filing.',
+        features: [
+          'MSC-1 Form filing',
+          'Statement of Affairs',
+          'Board Resolution',
+          'Compliance reduction'
+        ],
+        requirements: [
+          'Financial Statement showing no transactions',
+          'Director details',
+          'Board approval'
+        ],
+        deliverables: [
+          'Dormant Status Certificate'
+        ],
+        timeline: '15-20 working days'
+      },
+      {
+        slug: 'llp-form-11',
+        title: 'LLP Form 11 Filing',
+        icon: '📄',
+        short: 'Annual return filing for LLPs',
+        price: 1999,
+        price_display: '₹1,999',
+        category: 'MCA',
+        description: 'Mandatory annual return for LLP',
+        fullDescription: 'LLP Form 11 is the Annual Return of Limited Liability Partnership. It contains details of partners and contributions. It must be filed within 60 days of closure of financial year (by 30th May).',
+        features: [
+          'Form 11 preparation',
+          'Partner details verification',
+          'Turnover declaration',
+          'Penalty avoidance'
+        ],
+        requirements: [
+          'LLP Agreement',
+          'Contribution details',
+          'Partner details',
+          'DSC of Designated Partner'
+        ],
+        deliverables: [
+          'Filed Form 11',
+          'Challan Receipt'
+        ],
+        timeline: '2-3 working days'
+      },
+      {
+        slug: 'dpt-3-filing',
+        title: 'DPT-3 Filing',
+        icon: '💰',
+        short: 'Return of deposits filing',
+        price: 1999,
+        price_display: '₹1,999',
+        category: 'MCA',
+        description: 'Disclosure of deposits and outstanding loans',
+        fullDescription: 'Form DPT-3 is a return of deposits that companies must file to furnish information about deposits and/or outstanding receipt of loan or money other than deposits. Due date is generally 30th June.',
+        features: [
+          'Loan/Deposit classification',
+          'DPT-3 Form preparation',
+          'Auditor certificate coordination',
+          'Filing with ROC'
+        ],
+        requirements: [
+          'List of loans and deposits',
+          'Ageing of loans',
+          'Trust deed (if any)',
+          'Statutory Auditor inputs'
+        ],
+        deliverables: [
+          'Filed DPT-3',
+          'Challan Receipt'
+        ],
+        timeline: '3-5 working days'
+      },
+      {
+        slug: 'adt-1-filing',
+        title: 'ADT-1 Filing',
+        icon: '👨‍⚖️',
+        short: 'Appointment of Auditor',
+        price: 1499,
+        price_display: '₹1,499',
+        category: 'MCA',
+        description: 'Notify ROC about auditor appointment',
+        fullDescription: 'Form ADT-1 is filed by a company to intimate the Registrar of Companies about the appointment of an auditor after the AGM. It must be filed within 15 days of the meeting.',
+        features: [
+          'Form ADT-1 preparation',
+          'AGM Resolution details',
+          'Auditor consent letter',
+          'Filing support'
+        ],
+        requirements: [
+          'Auditor details (Name, PAN, Membership No.)',
+          'Consent letter from Auditor',
+          'Board/AGM Resolution'
+        ],
+        deliverables: [
+          'Filed ADT-1',
+          'Challan Receipt'
+        ],
+        timeline: '2-3 working days'
+      },
+      {
+        slug: 'remove-director',
+        title: 'Remove Director',
+        icon: '👤',
+        short: 'Process for removal/resignation of director',
+        price: 2499,
+        price_display: '₹2,499',
+        category: 'MCA',
+        description: 'Filing DIR-12 for director resignation',
+        fullDescription: 'When a director resigns from a company, Form DIR-12 must be filed with the ROC within 30 days. We handle the resignation letter, board resolution, and filing process.',
+        features: [
+          'Resignation letter drafting',
+          'Board Resolution',
+          'DIR-12 filing',
+          'Master Data update'
+        ],
+        requirements: [
+          'Resignation Letter',
+          'Board Meeting confirmation',
+          'Director DSC'
+        ],
+        deliverables: [
+          'Filed DIR-12',
+          'Updated Company Master Data'
+        ],
+        timeline: '3-5 working days'
+      },
+      {
+        slug: 'director-change',
+        title: 'Director Change',
+        icon: '🔄',
+        short: 'Add or change directors',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'MCA',
+        description: 'Appointment of new director (DIR-12)',
+        fullDescription: 'Process to appoint a new director to the Board. Involves obtaining DIN, obtaining consent (DIR-2), passing resolution, and filing Form DIR-12.',
+        features: [
+          'DIN Application (if required)',
+          'Consent Form DIR-2',
+          'Appointment Letter',
+          'DIR-12 filing'
+        ],
+        requirements: [
+          'Director KYC (PAN, Aadhaar)',
+          'Photo',
+          'DSC',
+          'Board Resolution'
+        ],
+        deliverables: [
+          'Filed DIR-12',
+          'Appointment validation',
+          'Updated Master Data'
+        ],
+        timeline: '5-7 working days'
+      },
+      {
+        slug: 'din-reactivation',
+        title: 'DIN Reactivation',
+        icon: '🔓',
+        short: 'Reactivate disqualified DIN',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'MCA',
+        description: 'Process to reactivate deactivated DIN',
+        fullDescription: 'If a Director Identification Number (DIN) is deactivated due to non-filing of KYC, we assist in reactivating it by filing DIR-3 KYC with necessary penalties.',
+        features: [
+          'DIR-3 KYC preparation',
+          'Penalty payment assistance',
+          'DIN status check',
+          'Reactivation support'
+        ],
+        requirements: [
+          'PAN and Aadhaar',
+          'Mobile and Email OTP',
+          'Passport (if foreign tax resident)'
+        ],
+        deliverables: [
+          'Reactivated DIN',
+          'KYC acknowledgement'
+        ],
+        timeline: '2-3 working days'
+      },
+      {
+        slug: 'din-ekyc-filing',
+        title: 'DIN eKYC Filing',
+        icon: '🆔',
+        short: 'Annual KYC for Directors',
+        price: 999,
+        price_display: '₹999',
+        category: 'MCA',
+        description: 'Mandatory annual DIR-3 KYC',
+        fullDescription: 'Every person holding a DIN must complete DIR-3 KYC annually before 30th September. Failure leads to DIN deactivation and penalty of ₹5,000.',
+        features: [
+          'Web-KYC or Form KYC filing',
+          'OTP verification',
+          'Status monitoring',
+          'Compliance certificate'
+        ],
+        requirements: [
+          'DIN',
+          'PAN',
+          'Aadhaar',
+          'Personal Mobile & Email'
+        ],
+        deliverables: [
+          'Filed DIR-3 KYC',
+          'Active status confirmation'
+        ],
+        timeline: '1-2 working days'
+      },
+      {
+        slug: 'registered-office-change',
+        title: 'Registered Office Change',
+        icon: '🏢',
+        short: 'Shift company address within/outside state',
+        price: 3999,
+        price_display: '₹3,999',
+        category: 'MCA',
+        description: 'Change of registered office address',
+        fullDescription: 'Process to shift registered office. Complexity varies based on whether the shift is within the same city, same state, or to another state (requires regional director approval).',
+        features: [
+          'INC-22 filing',
+          'Board/Special Resolution',
+          'Liaison with ROC/RD (for state shift)',
+          'Documentation support'
+        ],
+        requirements: [
+          'New address proof (Utility bill)',
+          'NOC from owner',
+          'Rent agreement'
+        ],
+        deliverables: [
+          'Filed INC-22',
+          'Updated Master Data'
+        ],
+        timeline: '5-10 working days'
+      },
+      {
+        slug: 'name-change-company',
+        title: 'Name Change- Company',
+        icon: '🏷️',
+        short: 'Change your company name',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'MCA',
+        description: 'Process to change company name',
+        fullDescription: 'Changing a company name involves checking name availability (RUN), passing a special resolution, and obtaining a fresh Certificate of Incorporation.',
+        features: [
+          'Name availability search',
+          'RUN application',
+          'MGT-14 filing',
+          'Information INC-24',
+          'Fresh COI'
+        ],
+        requirements: [
+          'Proposed names',
+          'Board and Shareholder approval',
+          'Justification for change'
+        ],
+        deliverables: [
+          'Fresh Certificate of Incorporation',
+          'Updated MOA/AOA'
+        ],
+        timeline: '15-20 working days'
+      },
+      {
+        slug: 'llp-compliance',
+        title: 'LLP Compliance',
+        icon: '👥',
+        short: 'Annual compliance package for LLPs',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'MCA',
+        description: 'End-to-end annual filling for LLP',
+        fullDescription: 'Comprehensive package covering Form 11 (Annual Return) and Form 8 (Statement of Accounts & Solvency) filing for Limited Liability Partnerships.',
+        features: [
+          'Form 11 Filing',
+          'Form 8 Filing',
+          'Partner KYC',
+          'Drafting of documents',
+          'Advisory'
+        ],
+        requirements: [
+          'LLP Financials',
+          'Partner details',
+          'DSC'
+        ],
+        deliverables: [
+          'Filed Form 11 & Form 8',
+          'Compliance status report'
+        ],
+        timeline: 'Annually'
+      },
+      {
+        slug: 'company-compliance',
+        title: 'Company Compliance',
+        icon: '🏢',
+        short: 'Annual compliance package for companies',
+        price: 9999,
+        price_display: '₹9,999',
+        category: 'MCA',
+        description: 'All-inclusive annual compliance for Pvt Ltd',
+        fullDescription: 'Complete peace of mind package for Private Limited Companies including AOC-4, MGT-7, Director KYC, and secretarial support.',
+        features: [
+          'ROC Returns (AOC-4, MGT-7)',
+          'Director KYC',
+          'Statutory Register maintenance',
+          'Minutes Book maintenance',
+          'Secretarial support'
+        ],
+        requirements: [
+          'Audited Financials',
+          'Director DSC',
+          'Board meeting details'
+        ],
+        deliverables: [
+          'Filed Annual Returns',
+          'Minutes and Registers',
+          'Confirmation of Compliance'
+        ],
+        timeline: 'Annually'
+      }
+    ]
+  },
+  'income-tax': {
+    title: 'Income Tax',
+    slug: 'income-tax',
+    icon: '📝',
+    description: 'Income tax return filing and planning',
+    services: [
+      {
+        slug: 'income-tax-filing',
+        title: 'Income tax E-Filing',
+        icon: '📑',
+        short: 'Expert assisted ITR filing',
+        price: 499,
+        price_display: '₹499',
+        category: 'Income Tax',
+        description: 'File your income tax return with expert assistance',
+        fullDescription: 'Get your Income Tax Return filed by tax experts. We help maximum tax refund and ensure complete compliance with Income Tax laws. Suitable for all types of income.',
+        features: [
+          'Expert consultation',
+          'Tax planning advice',
+          'Refund assistance',
+          'Notice management',
+          'Compliance check'
+        ],
+        requirements: [
+          'Form 16/16A',
+          'Bank statements',
+          'Investment proofs',
+          'Aadhaar & PAN'
+        ],
+        deliverables: [
+          'Filed ITR Acknowledgement',
+          'Computation of Income',
+          'Tax payment challan (if any)'
+        ],
+        timeline: '2-3 working days'
+      },
+      {
+        slug: 'tds-return-filing',
+        title: 'TDS Return Filing',
+        icon: '💰',
+        short: 'Quarterly TDS return filing and compliance',
+        price: 1499,
+        price_display: '₹1,499/quarter',
+        category: 'Income Tax',
+        description: 'Quarterly TDS return filing with complete reconciliation',
+        fullDescription: 'TDS Return Filing service for businesses deducting tax at source. We handle quarterly filing of Forms 24Q, 26Q, 27Q, and 27EQ with complete reconciliation.',
+        features: [
+          'Form 24Q/26Q/27Q filing',
+          'PAN verification',
+          'Challan verification',
+          'Form 16/16A generation',
+          'Late fee advice'
+        ],
+        requirements: [
+          'TAN number',
+          'TDS Challans',
+          'Deductee details',
+          'Deduction details'
+        ],
+        deliverables: [
+          'Filed TDS Return',
+          'Form 16/16A',
+          'Acknowledgement'
+        ],
+        timeline: 'Quarterly'
+      },
+      {
+        slug: 'itr-7-filing',
+        title: '(ITR-7) Return Filing',
+        icon: '🏛️',
+        short: 'ITR for Trusts, NGOs and Political Parties',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'Income Tax',
+        description: 'Filing ITR-7 for entities claiming exemption',
+        fullDescription: 'ITR-7 is applicable for persons including companies required to furnish return under sections 139(4A) or 139(4B) or 139(4C) or 139(4D). Ideal for Trusts, Political parties, Institutions, Colleges, etc.',
+        features: [
+          'Review of Audit Report',
+          'Exemption claim (11/12)',
+          'Form 10B/10BB analysis',
+          'Return filing',
+          'Compliance check'
+        ],
+        requirements: [
+          'Audited Financials',
+          'Audit Report (Form 10B/10BB)',
+          'Registration Certificate (12A/80G)',
+          'Trust Deed'
+        ],
+        deliverables: [
+          'Filed ITR-7',
+          'Computation of Income',
+          'Acknowledgement'
+        ],
+        timeline: '5-7 working days'
+      },
+      {
+        slug: 'itr-6-filing',
+        title: '(ITR-6) Return Filing',
+        icon: '🏢',
+        short: 'ITR filing for Companies',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'Income Tax',
+        description: 'Corporate tax return filing for companies',
+        fullDescription: 'ITR-6 is mandatory for all companies (except those claiming exemption under section 11). It must be filed electronically. We handle complex corporate tax computations and MAT calculations.',
+        features: [
+          'Corporate tax computation',
+          'MAT calculation',
+          'Depreciation schedule',
+          'Foreign asset reporting',
+          'Audit report integration'
+        ],
+        requirements: [
+          'Audited Financial Statements',
+          'Tax Audit Report',
+          'Bank Statements',
+          'DSC of Director'
+        ],
+        deliverables: [
+          'Filed ITR-6',
+          'Computation of Income',
+          'Acknowledgement'
+        ],
+        timeline: '5-7 working days'
+      },
+       {
+        slug: 'itr-5-filing',
+        title: '(ITR-5) Return Filing',
+        icon: '👥',
+        short: 'ITR for Firms, LLPs and AOPs',
+        price: 2499,
+        price_display: '₹2,499',
+        category: 'Income Tax',
+        description: 'Tax filing for Partnerships and LLPs',
+        fullDescription: 'ITR-5 is for firms, LLPs, AOPs, BOIs, etc. We ensure correct reporting of partner\'s remuneration, interest on capital, and other specific deductions available to firms.',
+        features: [
+          'Partnership tax computation',
+          'Partner salary/interest schedule',
+          'Presumptive scheme (if applicable)',
+          'Tax audit assistance',
+          'Filing support'
+        ],
+        requirements: [
+          'Financial Statements',
+          'Partnership Deed',
+          'Partner details',
+          'Bank statements'
+        ],
+        deliverables: [
+          'Filed ITR-5',
+          'Computation of Income',
+          'Acknowledgement'
+        ],
+        timeline: '3-5 working days'
+      },
+      {
+        slug: 'itr-4-filing',
+        title: '(ITR-4) Return Filing',
+        icon: '📊',
+        short: 'Presumptive taxation for small businesses',
+        price: 1499,
+        price_display: '₹1,499',
+        category: 'Income Tax',
+        description: 'Sugam ITR filing under presumptive scheme',
+        fullDescription: 'ITR-4 (Sugam) is for individuals, HUFs and Firms (other than LLP) being a resident having total income up to ₹50 lakh and having income from business and profession computed under sections 44AD, 44ADA or 44AE.',
+        features: [
+          'Presumptive income calculation',
+          'No books of accounts required',
+          'Tax planning',
+          'Quick filing',
+          'Refund processing'
+        ],
+        requirements: [
+          'Bank statements',
+          'Turnover/Receipts details',
+          'Form 26AS',
+          'Personal details'
+        ],
+        deliverables: [
+          'Filed ITR-4',
+          'Computation of Income',
+          'Acknowledgement'
+        ],
+        timeline: '2-3 working days'
+      },
+      {
+        slug: 'itr-3-filing',
+        title: '(ITR-3) Return Filing',
+        icon: '💼',
+        short: 'ITR for business and professional income',
+        price: 1999,
+        price_display: '₹1,999',
+        category: 'Income Tax',
+        description: 'ITR-3 filing for business income with financial statements',
+        fullDescription: 'ITR-3 is for individuals and HUFs having income from business or profession. Includes preparation of profit and loss account and balance sheet.',
+        features: [
+          'P&L and Balance Sheet preparation',
+          'Business income calculation',
+          'Audit report filing (if applicable)',
+          'Loss carry forward',
+          'Expert review'
+        ],
+        requirements: [
+          'Books of Accounts',
+          'Bank statements',
+          'Form 26AS',
+          'Investment proofs'
+        ],
+        deliverables: [
+          'Filed ITR-3',
+          'Financial Statements',
+          'Computation Sheet'
+        ],
+        timeline: '5-7 working days'
+      },
+      {
+        slug: 'itr-2-filing',
+        title: '(ITR-2) Return Filing',
+        icon: '📋',
+        short: 'ITR filing for individuals with capital gains',
+        price: 1499,
+        price_display: '₹1,499',
+        category: 'Income Tax',
+        description: 'ITR-2 filing for capital gains and multiple properties',
+        fullDescription: 'ITR-2 is for individuals and HUFs not having income from business or profession. Applicable when you have capital gains from property, shares, or multiple house properties.',
+        features: [
+          'Capital gains calculation',
+          'Foreign Asset reporting',
+          'Multiple house property',
+          'Agricultural income',
+          'Clubbing of income'
+        ],
+        requirements: [
+          'Capital Gain Statement',
+          'Broker reports',
+          'Property deed',
+          'Form 26AS'
+        ],
+        deliverables: [
+          'Filed ITR-2',
+          'Capital Gain Report',
+          'Computation of Income'
+        ],
+        timeline: '3-5 working days'
+      },
+      {
+        slug: 'itr-1-filing',
+        title: '(ITR-1) Return Filing',
+        icon: '👤',
+        short: 'Sahaj ITR for salaried individuals',
+        price: 499,
+        price_display: '₹499',
+        category: 'Income Tax',
+        description: 'Simple ITR filing for salary/pension income',
+        fullDescription: 'ITR-1 (Sahaj) is for individuals being a resident (other than not ordinarily resident) having total income upto ₹50 lakh, having Income from Salaries, one house property, other sources (Interest etc.), and agricultural income upto ₹5 thousand.',
+        features: [
+          'Salary income reporting',
+          'House property loss claim',
+          'Deductions (80C, 80D etc.)',
+          'Tax refund assistance',
+          'Notice check'
+        ],
+        requirements: [
+          'Form 16',
+          'Interest certificates',
+          'Form 26AS',
+          'Aadhaar & PAN'
+        ],
+        deliverables: [
+          'Filed ITR-1',
+          'Computation',
+          'Acknowledgement'
+        ],
+        timeline: '1-2 working days'
+      },
+      {
+        slug: 'business-tax-filing',
+        title: 'Business Tax Filing',
+        icon: '🏭',
+        short: 'Comprehensive tax filing for businesses',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'Income Tax',
+        description: 'End-to-end tax solutions for businesses',
+        fullDescription: 'Tailored tax filing service for businesses covering Income Tax, Advance Tax, and TDS planning. We help you stay compliant while optimizing your tax liability.',
+        features: [
+          'Advance Tax estimation',
+          'Tax planning',
+          'Return filing',
+          'Compliance calendar',
+          'Expert advisory'
+        ],
+        requirements: [
+          'Financial data',
+          'Previous returns',
+          'Business details'
+        ],
+        deliverables: [
+          'Filed Returns',
+          'Tax Plan Report',
+          'Challans'
+        ],
+        timeline: 'Ongoing'
+      }
+    ]
+  },
+  'gst': {
+    title: 'GST',
+    slug: 'gst',
+    icon: '🧾',
+    description: 'Goods and Services Tax compliance',
+    services: [
+      {
+        slug: 'gst-refund',
+        title: 'GST Refund Filing',
+        icon: '💸',
+        short: 'Claim your GST refunds',
+        price: 1999,
+        price_display: '₹1,999',
+        category: 'GST',
+        description: 'Assistance in claiming GST refunds',
+        fullDescription: 'We help you file GST refund applications for exports (with/without payment of tax), inverted duty structure, and excess balance in cash ledger.',
+        features: [
+          'Eligibility check',
+          'RFD-01 filing',
+          'Document preparation',
+          'Department follow-up',
+          'Refund tracking'
+        ],
+        requirements: [
+          'Export documents',
+          'ITC ledger',
+          'GSTR-2A/2B',
+          'Bank details'
+        ],
+        deliverables: [
+          'Filed Refund Application',
+          'ARN generation',
+          'Refund Order'
+        ],
+        timeline: '15-30 working days'
+      },
+      {
+        slug: 'gst-lut-filing',
+        title: 'GST LUT Filing',
+        icon: '📝',
+        short: 'Export without paying IGST',
+        price: 499,
+        price_display: '₹499',
+        category: 'GST',
+        description: 'File Letter of Undertaking for exports',
+        fullDescription: 'Letter of Undertaking (LUT) allows exporters to export goods or services without payment of IGST. It is valid for one financial year and must be renewed annually.',
+        features: [
+          'Form GST RFD-11 filing',
+          'ARN generation',
+          'Export compliance advisory',
+          'Annual renewal'
+        ],
+        requirements: [
+          'GSTIN',
+          'Authorized signatory DSC',
+          'Witness details'
+        ],
+        deliverables: [
+          'LUT Acknowledgement',
+          'LUT ARN'
+        ],
+        timeline: '1-2 working days'
+      },
+      {
+        slug: 'gst-audit',
+        title: 'GST Audit (GSTR-9C)',
+        icon: '🔍',
+        short: 'Reconciliation statement filing',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'GST',
+        description: 'GSTR-9C filing and certification',
+        fullDescription: 'Filing of Reconciliation Statement (GSTR-9C) for taxpayers with turnover exceeding prescribed limit. reconciling returns with audited financial statements.',
+        features: [
+          'Reconciliation of GSTR-9 with Audited Financials',
+          'Clause-by-clause reporting',
+          'Certification',
+          'Liability assessment'
+        ],
+        requirements: [
+          'Audited Financials',
+          'GSTR-9',
+          'Annual returns data',
+          'ITC register'
+        ],
+        deliverables: [
+          'Filed GSTR-9C',
+          'Reconciliation Report'
+        ],
+        timeline: '7-10 working days'
+      },
+      {
+        slug: 'gst-annual-return',
+        title: 'GST Annual Return (GSTR-9)',
+        icon: '📅',
+        short: 'Consolidated annual return filing',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'GST',
+        description: 'Annual GSTR-9 filing',
+        fullDescription: 'GSTR-9 is an annual return to be filed by all registered taxpayers. It consists of details regarding outward and inward supplies made/received during the financial year.',
+        features: [
+          'Consolidated data preparation',
+          'ITC reconciliation',
+          'Tax liability matching',
+          'Filing support'
+        ],
+        requirements: [
+          'Monthly/Quarterly returns data',
+          'Financial statements',
+          'GSTR-2A/2B reports'
+        ],
+        deliverables: [
+          'Filed GSTR-9',
+          'Acknowledgement'
+        ],
+        timeline: '5-7 working days'
+      },
+      {
+        slug: 'gst-return-filing-quarterly',
+        title: 'GST Return Filing (Quarterly)',
+        icon: '🗓️',
+        short: 'Composition/QRMP scheme filing',
+        price: 999,
+        price_display: '₹999/quarter',
+        category: 'GST',
+        description: 'Quarterly return filing service',
+        fullDescription: 'For composition dealers (CMP-08) and regular taxpayers under QRMP scheme. We ensure timely filing of statements and returns every quarter.',
+        features: [
+          'CMP-08 / GSTR-1 & 3B (QRMP)',
+          'Challan generation',
+          'Invoice uploading',
+          'Compliance check'
+        ],
+        requirements: [
+          'Sales data',
+          'Purchase data',
+          'Bank statement'
+        ],
+        deliverables: [
+          'Filed Return',
+          'Payment Challan'
+        ],
+        timeline: 'Quarterly'
+      },
+      {
+        slug: 'gst-return-filing-monthly',
+        title: 'GST Return Filing (Monthly)',
+        icon: '🗓️',
+        short: 'Regular monthly GST compliance',
+        price: 499,
+        price_display: '₹499/month',
+        category: 'GST',
+        description: 'Monthly GSTR-1 and GSTR-3B filing',
+        fullDescription: 'Comprehensive monthly compliance for regular taxpayers. Handing GSTR-1 (Outward supplies) and GSTR-3B (Summary return) ensuring ITC claim and liability discharge.',
+        features: [
+          'GSTR-1 Filing',
+          'GSTR-3B Filing',
+          'ITC Reconciliation (2A/2B)',
+          'Tax payment support',
+          'Monthly report'
+        ],
+        requirements: [
+          'Sales Invoices',
+          'Purchase Invoices',
+          'Expense bills',
+          'Bank statement'
+        ],
+        deliverables: [
+          'Filed Returns',
+          'Tax Challans',
+          'Compliance Report'
+        ],
+        timeline: 'Monthly'
+      },
+      {
+        slug: 'gst-registration',
+        title: 'GST Registration',
+        icon: '📝',
+        short: 'Get your GSTIN quickly',
+        price: 999,
+        price_display: '₹999',
+        category: 'GST',
+        description: 'New GST Registration service',
+        fullDescription: 'Get your business registered under GST. Mandatory for turnover above threshold or for interstate trade/e-commerce. We handle the complete online application process.',
+        features: [
+          'Application filing',
+          'Document verification',
+          'Clarification response',
+          'HSN/SAC code selection',
+          'Certificate issuance'
+        ],
+        requirements: [
+          'PAN & Aadhaar',
+          'Business Address Proof',
+          'Bank Account Proof',
+          'Photo'
+        ],
+        deliverables: [
+          'GST Certificate (REG-06)',
+          'Login Credentials'
+        ],
+        timeline: '3-5 working days'
+      }
+    ]
+  },
+  'trademark': {
+    title: 'Trademark',
+    slug: 'trademark',
+    icon: '®️',
+    description: 'Protect your brand and intellectual property',
+    services: [
+      {
+        slug: 'trademark-registration',
+        title: 'Trademark Registration',
+        icon: '®️',
+        short: 'Protect your brand name and logo',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'Trademark',
+        description: 'Secure legal protection for your brand',
+        fullDescription: 'Trademark Registration provides legal protection to your brand name, logo, and tagline. It gives you exclusive rights to use the mark and prevents others from using similar marks.',
+        features: [
+          'Trademark Search',
+          'Application Filing',
+          'Government Fees guidance',
+          'Use of TM symbol',
+          'Application tracking'
+        ],
+        requirements: [
+          'Logo / Brand Name',
+          'Applicant Details',
+          'MSME Certificate (for fee discount)',
+          'User Affidavit'
+        ],
+        deliverables: [
+          'Trademark Application No.',
+          'Vienna Code',
+          'Examination Report reply assistance'
+        ],
+        timeline: '1-2 working days (filing)'
+      },
+      {
+        slug: 'trademark-objection',
+        title: 'Trademark Objection',
+        icon: '📝',
+        short: 'Reply to examination report',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'Trademark',
+        description: 'Professional reply to trademark objections',
+        fullDescription: 'If the Trademark Registry raises an objection, a legal reply must be filed within 30 days. We draft strong legal responses citing precedents to overcome objections.',
+        features: [
+          'Examination Report analysis',
+          'Legal reply drafting',
+          'Filing with Registry',
+          'Status monitoring'
+        ],
+        requirements: [
+          'Examination Report',
+          'Application Number',
+          'POA (Power of Attorney)'
+        ],
+        deliverables: [
+          'Filed Examination Reply',
+          'Arguments copy'
+        ],
+        timeline: '2-4 working days'
+      },
+      {
+        slug: 'trademark-opposition',
+        title: 'Trademark Opposition',
+        icon: '⚖️',
+        short: 'File or defend opposition',
+        price: 9999,
+        price_display: '₹9,999',
+        category: 'Trademark',
+        description: 'Legal support for trademark opposition',
+        fullDescription: 'Opposition proceedings happen when a third party opposes a trademark application. We handle filing Notice of Opposition or Counter Statement and evidence stages.',
+        features: [
+          'Notice of Opposition drafting',
+          'Counter Statement drafting',
+          'Evidence filing',
+          'Hearing representation'
+        ],
+        requirements: [
+          'Case history',
+          'Evidence of use',
+          'POA'
+        ],
+        deliverables: [
+          'Filed Notice/Counter Statement',
+          'Legal Strategy'
+        ],
+        timeline: 'Month-on-month'
+      },
+      {
+        slug: 'trademark-renewal',
+        title: 'Trademark Renewal',
+        icon: '🔄',
+        short: 'Renew your trademark every 10 years',
+        price: 7999,
+        price_display: '₹7,999',
+        category: 'Trademark',
+        description: 'Keep your trademark valid',
+        fullDescription: 'Trademarks are valid for 10 years. They must be renewed to maintain protection. We assist in filing Form TM-R for renewal.',
+        features: [
+          'Renewal filing',
+          'Application tracking',
+          'Validity extension',
+          'Status update'
+        ],
+        requirements: [
+          'Registration Certificate',
+          'POA'
+        ],
+        deliverables: [
+          'Renewal Request Filed',
+          'Next 10 years validity'
+        ],
+        timeline: '2-3 working days'
+      },
+      {
+        slug: 'copyright-registration',
+        title: 'Copyright Registration',
+        icon: '©️',
+        short: 'Protect your creative work',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'Trademark',
+        description: 'Copyright for artistic, literary, and musical works',
+        fullDescription: 'Copyright gives exclusive rights to creators of literary, artistic, musical works, and software. We handle the application filing with the Copyright Office.',
+        features: [
+          'Application filing',
+          'Work classification',
+          'Diary Number generation',
+          'Discrepancy clearing'
+        ],
+        requirements: [
+          'Copies of work',
+          'NOC from author (if applicant is different)',
+          'ID Proof'
+        ],
+        deliverables: [
+          'Diary Number',
+          'Registration Certificate (after approval)'
+        ],
+        timeline: '3-4 months'
+      },
+      {
+        slug: 'patent-registration',
+        title: 'Patent Registration',
+        icon: '💡',
+        short: 'Protect your invention',
+        price: 29999,
+        price_display: '₹29,999',
+        category: 'Trademark',
+        description: 'Patent filing and prosecution',
+        fullDescription: 'Patents protect inventions. We assist in prior art search, patent drafting (provisional/complete), and filing with the Patent Office.',
+        features: [
+          'Patent Search',
+          'Drafting of specification',
+          'Filing Application',
+          'Request for Examination'
+        ],
+        requirements: [
+          'Invention details',
+          'Drawings',
+          'Applicant details'
+        ],
+        deliverables: [
+          'Patent Application Number',
+          'Published Patent'
+        ],
+        timeline: '12-24 months'
+      },
+      {
+        slug: 'design-registration',
+        title: 'Designing Registration',
+        icon: '🎨',
+        short: 'Protect industrial designs',
+        price: 6999,
+        price_display: '₹6,999',
+        category: 'Trademark',
+        description: 'Protection for shape and aesthetics',
+        fullDescription: 'Design registration protects the visual features of shape, configuration, pattern or ornament applied to an article. It does not cover the functionality.',
+        features: [
+          'Design classification',
+          'Representation sheets preparation',
+          'Filing',
+          'Objection handling'
+        ],
+        requirements: [
+          'Photos/Drawings of article',
+          'Description of novelty',
+          'Applicant details'
+        ],
+        deliverables: [
+          'Design Application Number',
+          'Registration Certificate'
+        ],
+        timeline: '6-8 months'
+      },
+      {
+        slug: 'logo-designing',
+        title: 'Logo Designing',
+        icon: '🖌️',
+        short: 'Professional logo for your brand',
+        price: 999,
+        price_display: '₹999',
+        category: 'Trademark',
+        description: 'Custom logo design services',
+        fullDescription: 'Get a unique and professional logo designed for your business. A good logo builds brand identity and is essential for trademark registration.',
+        features: [
+          'Multiple concepts',
+          'Revisions included',
+          'High resolution files',
+          'Copyright transfer'
+        ],
+        requirements: [
+          'Business Name',
+          'Industry/Niche',
+          'Color preferences'
+        ],
+        deliverables: [
+          'Logo files (PNG, JPG, Vector)',
+          'Brand guidelines'
+        ],
+        timeline: '3-5 working days'
+      },
+      {
+        slug: 'trademark-hearing',
+        title: 'Trademark Hearing',
+        icon: '👂',
+        short: 'Representation in hearings',
+        price: 4999,
+        price_display: '₹4,999',
+        category: 'Trademark',
+        description: 'Legal representation for show cause hearings',
+        fullDescription: 'If your trademark application is set for a hearing, our attorneys will represent your case before the Registrar to argue for acceptance.',
+        features: [
+          'Hearing Preparation',
+          'Attorney Appearance',
+          'Submissions on record',
+          'Order verification'
+        ],
+        requirements: [
+          'Hearing Notice',
+          'POA',
+          'Case papers'
+        ],
+        deliverables: [
+          'Hearing Report',
+          'Acceptance Order (if successful)'
+        ],
+        timeline: 'As per hearing date'
+      },
+      {
+        slug: 'trademark-rectification',
+        title: 'Trademark Rectification',
+        icon: '🛠️',
+        short: 'Correct register entries',
+        price: 5999,
+        price_display: '₹5,999',
+        category: 'Trademark',
+        description: 'Rectification or cancellation of trademark',
+        fullDescription: 'Application to rectify an error in the trademark register or to cancel a competitor\'s trademark on grounds of non-use or bad faith.',
+        features: [
+          'Rectification petition',
+          'Grounds of research',
+          'Filing with updated rules'
+        ],
+        requirements: [
+          'Target trademark details',
+          'Applicant\'s locus standi'
+        ],
+        deliverables: [
+          'Filed Petition',
+          'Registry Order'
+        ],
+        timeline: 'Based on proceedings'
+      },
+      {
+        slug: 'trademark-transfer',
+        title: 'Trademark Transfer',
+        icon: '🤝',
+        short: 'Assignment of trademark rights',
+        price: 3999,
+        price_display: '₹3,999',
+        category: 'Trademark',
+        description: 'Transfer ownership of trademark',
+        fullDescription: 'Trademark assignment is the process of transferring ownership of a trademark from one person/entity to another (with or without goodwill).',
+        features: [
+          'Assignment Deed drafting',
+          'Form TM-P filing',
+          'Recordal of assignment'
+        ],
+        requirements: [
+          'Deed of Assignment',
+          'POA from Assignee'
+        ],
+        deliverables: [
+          'Filed TM-P',
+          'Updated proprietor details'
+        ],
+        timeline: '1-2 months'
+      },
+      {
+        slug: 'trademark-protection',
+        title: 'Trademark Protection',
+        icon: '🛡️',
+        short: 'Monitoring and watch services',
+        price: 999,
+        price_display: '₹999/month',
+        category: 'Trademark',
+        description: 'Watch service against infringement',
+        fullDescription: 'We monitor the trademark journal and market for similar marks being filed or used, alerting you to potential infringements so you can take timely action.',
+        features: [
+          'Trademark Journal watch',
+          'Market surveillance',
+          'Infringement alert',
+          'Legal opinion'
+        ],
+        requirements: [
+          'Details of registered mark'
+        ],
+        deliverables: [
+          'Monthly Watch Report'
+        ],
+        timeline: 'Monthly'
+      },
+      {
+        slug: 'copyright-objection',
+        title: 'Copyright Objection',
+        icon: '🚫',
+        short: 'Response to copyright discrepancies',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'Trademark',
+        description: 'Clear copyright objections',
+        fullDescription: 'If the Copyright Office raises discrepancies in your application, we help file a formal response to resolve them and proceed towards registration.',
+        features: [
+          'Discrepancy analysis',
+          'Response drafting',
+          'Filing',
+          'Follow-up'
+        ],
+        requirements: [
+          'Discrepancy Letter',
+          'Application details'
+        ],
+        deliverables: [
+          'Filed Response',
+          'Status Update'
+        ],
+        timeline: '5-7 working days'
+      }
+    ]
+  },
+  'startup': {
+    title: 'Startup',
+    slug: 'startup',
+    icon: '🚀',
+    description: 'Launch your business',
+    services: [
+      {
+        slug: 'section-8-company',
+        title: 'Section 8 Company',
+        icon: '🏛️',
+        short: 'Non-profit organization registration',
+        price: 9999,
+        price_display: '₹9,999',
+        category: 'Startup',
+        description: 'Register a Section 8 company for NGOs',
+        fullDescription: 'Section 8 Company is a special type of company formed for promoting charitable objectives. It enjoys various tax benefits and exemptions.',
+        features: [
+          'DSC & DIN',
+          'Name Reservation',
+          'License under Section 8',
+          'Incorporation Certificate',
+          'PAN & TAN'
+        ],
+        requirements: [
+          'Director IDs',
+          'Photos',
+          'Address Proof',
+          'Objectives of NGO'
+        ],
+        deliverables: [
+          'Incorporation Certificate',
+          'License',
+          'Section 8 License'
+        ],
+        timeline: '15-20 working days'
+      },
+      {
+        slug: 'private-limited-company',
+        title: 'Private Limited Company',
+        icon: '💼',
+        short: 'Most popular startup structure',
+        price: 6999,
+        price_display: '₹6,999',
+        category: 'Startup',
+        description: 'Private Limited Company incorporation',
+        fullDescription: 'The most preferred structure for startups. It offers limited liability, separate legal entity status, and easy fund raising capability.',
+        features: [
+          'DSC for 2 Directors',
+          'DIN for 2 Directors',
+          'Name Approval',
+          'MOA & AOA',
+          'Incorporation Certificate'
+        ],
+        requirements: [
+          'PAN & Aadhaar',
+          'Bank statement/Utility bill',
+          'Photo',
+          'Rent Agreement (Office)'
+        ],
+        deliverables: [
+          'Certificate of Incorporation',
+          'PAN & TAN',
+          'MOA & AOA'
+        ],
+        timeline: '7-10 working days'
+      },
+      {
+        slug: 'partnership-firm-registration',
+        title: 'Partnership Firm Registration',
+        icon: '🤝',
+        short: 'Register your partnership firm',
+        price: 3999,
+        price_display: '₹3,999',
+        category: 'Startup',
+        description: 'Registration of Partnership Firm',
+        fullDescription: 'A partnership is an arrangement where parties, known as business partners, agree to cooperate to advance their mutual interests. Registration makes it a legal entity capable of suing.',
+        features: [
+          'Partnership Deed Drafting',
+          'Notarization',
+          'Registration application',
+          'Firm Card/Certificate'
+        ],
+        requirements: [
+          'Partners Details',
+          'Office Address Proof',
+          'Capital Contribution details'
+        ],
+        deliverables: [
+          'Registered Partnership Deed',
+          'Registration Certificate (RoF)'
+        ],
+        timeline: '10-15 working days'
+      },
+      {
+        slug: 'limited-liability-partnership',
+        title: 'Limited Liability Partnership',
+        icon: '👥',
+        short: 'LLP Registration',
+        price: 5999,
+        price_display: '₹5,999',
+        category: 'Startup',
+        description: 'Incorporation of LLP',
+        fullDescription: 'LLP combines the flexibility of a partnership with the limited liability of a company. Ideal for professionals and small businesses.',
+        features: [
+          'DSC & DIN',
+          'Name Reservation',
+          'LLP Agreement drafting',
+          'Incorporation filing'
+        ],
+        requirements: [
+          'Partner KYC',
+          'Address Proof',
+          'Contribution details'
+        ],
+        deliverables: [
+          'Certificate of Incorporation',
+          'LLP Agreement',
+          'PAN & TAN'
+        ],
+        timeline: '10-12 working days'
+      },
+      {
+        slug: 'sole-proprietorship',
+        title: 'Sole-proprietorship',
+        icon: '👤',
+        short: 'Simplest business form',
+        price: 2999,
+        price_display: '₹2,999',
+        category: 'Startup',
+        description: 'Start a proprietorship business',
+        fullDescription: 'Sole Proprietorship is the simplest form of business organization owned and managed by a single individual. Registration is usually done via UDYAM or GST.',
+        features: [
+          'UDYAM Registration',
+          'GST Registration (if opted)',
+          'Current Account opening support',
+          'Business proof'
+        ],
+        requirements: [
+          'PAN & Aadhaar',
+          'Address Proof',
+          'Photo'
+        ],
+        deliverables: [
+          'Registration Certificate',
+          'Entity Proof'
+        ],
+        timeline: '3-5 working days'
       }
     ]
   },
@@ -1390,224 +2579,6 @@ export const servicesData: Record<string, ServiceCategory> = {
       }
     ]
   },
-  'funding-loans': {
-    title: 'Funding & Loans',
-    slug: 'funding-loans',
-    icon: '💰',
-    description: 'Business funding and loan assistance services',
-    services: [
-      {
-        slug: 'business-loan',
-        title: 'Business Loan',
-        icon: '🏦',
-        short: 'Secure business loans from banks and NBFCs',
-        price: 4999,
-        price_display: '₹4,999',
-        category: 'Funding & Loans',
-        description: 'Business loan assistance from leading banks and NBFCs',
-        fullDescription: 'Get business loans from leading banks and NBFCs with our comprehensive assistance. We help with eligibility assessment, documentation preparation, bank application submission, and follow-up to ensure quick loan approval at competitive interest rates.',
-        features: [
-          'Loan eligibility assessment',
-          'Complete documentation preparation',
-          'Multiple bank applications submission',
-          'Follow-up and coordination',
-          'Best interest rates negotiation',
-          'Multiple bank and NBFC options'
-        ],
-        requirements: [
-          'Business registration documents',
-          'Financial statements (last 2 years)',
-          'Bank statements (6-12 months)',
-          'Income tax returns (2-3 years)',
-          'Business plan and projections',
-          'Collateral documents (if required)'
-        ],
-        deliverables: [
-          'Loan eligibility report',
-          'Complete documentation package',
-          'Bank applications filed (3-5 banks)',
-          'Loan approval assistance',
-          'Disbursement support and coordination'
-        ],
-        timeline: '15-30 working days'
-      },
-      {
-        slug: 'mudra-loan',
-        title: 'MUDRA Loan',
-        icon: '🎯',
-        short: 'Government-backed collateral-free MUDRA loans',
-        price: 2999,
-        price_display: '₹2,999',
-        category: 'Funding & Loans',
-        description: 'MUDRA loan assistance for micro and small enterprises',
-        fullDescription: 'MUDRA (Micro Units Development & Refinance Agency) provides collateral-free loans up to ₹10 lakhs for micro and small enterprises through banks. Available in three categories: Shishu (up to ₹50,000), Kishore (₹50,001 to ₹5 lakhs), and Tarun (₹5 lakhs to ₹10 lakhs).',
-        features: [
-          'Loans up to ₹10 lakhs without collateral',
-          'No collateral or guarantee required',
-          'Low interest rates (starts at 8%)',
-          'Government-backed scheme',
-          'Complete documentation assistance',
-          'Quick approval process (15-20 days)'
-        ],
-        requirements: [
-          'Business plan with cost estimates',
-          'ID and address proof',
-          'Business registration or GST (if applicable)',
-          'Bank statements (6 months)',
-          'Income proof or ITR',
-          'Project cost and means of finance'
-        ],
-        deliverables: [
-          'MUDRA loan application complete',
-          'Detailed business plan document',
-          'Bank submission and follow-up',
-          'Approval assistance',
-          'Disbursement support'
-        ],
-        timeline: '15-20 working days'
-      },
-      {
-        slug: 'startup-funding',
-        title: 'Startup Funding Assistance',
-        icon: '🚀',
-        short: 'Connect with angel investors and venture capitalists',
-        price: 9999,
-        price_display: '₹9,999',
-        category: 'Funding & Loans',
-        description: 'Startup funding assistance and investor connections',
-        fullDescription: 'Get comprehensive assistance in raising funds for your startup. We help with pitch deck creation, financial modeling, investor database access, valuation assistance, due diligence support, and term sheet negotiations to maximize your chances of successful fundraising.',
-        features: [
-          'Professional pitch deck creation',
-          'Investor database access (500+ investors)',
-          'Company valuation assistance',
-          'Due diligence preparation and support',
-          'Term sheet review and negotiation',
-          'Legal documentation support'
-        ],
-        requirements: [
-          'Detailed business plan',
-          'Financial projections (3-5 years)',
-          'Company incorporation documents',
-          'Team information and background',
-          'Market analysis and competition',
-          'Existing cap table and shareholding'
-        ],
-        deliverables: [
-          'Professional investor pitch deck',
-          'Investor introductions (min 10)',
-          'Company valuation report',
-          'Due diligence documentation package',
-          'Term sheet negotiation support'
-        ],
-        timeline: '30-60 days'
-      },
-      {
-        slug: 'cgtmse-loan',
-        title: 'CGTMSE Loan',
-        icon: '🛡️',
-        short: 'Collateral-free loans with government guarantee',
-        price: 3999,
-        price_display: '₹3,999',
-        category: 'Funding & Loans',
-        description: 'CGTMSE scheme for collateral-free MSME loans',
-        fullDescription: 'Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) provides collateral-free loans up to ₹2 crores for MSMEs through lending institutions. The scheme provides guarantee coverage up to 85% of the sanctioned amount.',
-        features: [
-          'Loans up to ₹2 crores without collateral',
-          'No collateral or third-party guarantee',
-          'Government guarantee coverage (85%)',
-          'Complete documentation support',
-          'Bank coordination and follow-up',
-          'Quick processing time'
-        ],
-        requirements: [
-          'MSME/Udyam registration certificate',
-          'Detailed project report',
-          'Financial statements or projections',
-          'ID and address proof',
-          'Bank statements (6-12 months)',
-          'Business registration documents'
-        ],
-        deliverables: [
-          'CGTMSE loan application',
-          'Detailed project report',
-          'Bank submission and coordination',
-          'Guarantee certificate processing',
-          'Loan approval and disbursement support'
-        ],
-        timeline: '20-30 working days'
-      },
-      {
-        slug: 'working-capital-loan',
-        title: 'Working Capital Loan',
-        icon: '💵',
-        short: 'Manage daily operations and cash flow',
-        price: 4999,
-        price_display: '₹4,999',
-        category: 'Funding & Loans',
-        description: 'Working capital loans for day-to-day business operations',
-        fullDescription: 'Working capital loans help businesses manage day-to-day operations, purchase inventory, pay salaries, and meet short-term financial obligations. Available as overdraft facility, cash credit, or term loan with flexible repayment options.',
-        features: [
-          'Quick loan approval (7-15 days)',
-          'Flexible repayment options',
-          'Minimal documentation required',
-          'Competitive interest rates (10-14%)',
-          'Multiple lender options',
-          'Expert guidance throughout process'
-        ],
-        requirements: [
-          'Business registration proof',
-          'Bank statements (6-12 months)',
-          'GST returns (6-12 months)',
-          'Financial statements (if available)',
-          'Income tax returns (2 years)',
-          'Purchase orders or invoices'
-        ],
-        deliverables: [
-          'Complete loan application package',
-          'Financial analysis report',
-          'Lender coordination (3-5 options)',
-          'Approval assistance and follow-up',
-          'Disbursement support'
-        ],
-        timeline: '7-15 working days'
-      },
-      {
-        slug: 'angel-investment',
-        title: 'Angel Investment',
-        icon: '👼',
-        short: 'Early-stage funding from angel investors',
-        price: 14999,
-        price_display: '₹14,999',
-        category: 'Funding & Loans',
-        description: 'Connect with angel investors for seed funding',
-        fullDescription: 'Angel investment provides early-stage capital for startups from high-net-worth individuals. We facilitate connections with active angel networks and individual investors, help with pitch preparation, valuation negotiation, and legal documentation.',
-        features: [
-          'Angel investor network access (200+ active angels)',
-          'Professional pitch deck preparation',
-          'Company valuation guidance',
-          'Investment terms negotiation support',
-          'Legal documentation and compliance',
-          'Post-investment mentorship connect'
-        ],
-        requirements: [
-          'Comprehensive business plan',
-          'Product/service prototype or MVP',
-          'Market research and TAM/SAM/SOM',
-          'Founding team details and background',
-          'Financial projections (3 years)',
-          'Current traction metrics (if any)'
-        ],
-        deliverables: [
-          'Investor-ready pitch deck (15-20 slides)',
-          'Angel network introductions (10-15)',
-          'Company valuation report',
-          'Term sheet negotiation assistance',
-          'SHA and legal documentation support'
-        ],
-        timeline: '45-90 days'
-      }
-    ]
-  }
 };
 
 // Helper Functions
