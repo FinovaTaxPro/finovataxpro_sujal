@@ -30,25 +30,6 @@ frontend/
 │   └── serviceData.ts    # Single source of truth for all service data
 └── public/               # Static assets
 ```
-
-## Setup & Run
-
-1. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
-
-2. **Run Development Server**:
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Deployment
-
-This app can be deployed to Vercel, Netlify, or any static hosting that supports Node.js.
-Since all data is local, no external database connection is required for the main display logic.
-
 ## Recent Changes
 
 - **Data Migration**: Service data moved from backend DB to `data/serviceData.ts`.
