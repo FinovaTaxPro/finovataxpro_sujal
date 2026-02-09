@@ -81,7 +81,7 @@ export default function Header() {
             ))}
 
             <a
-              href="/contact"
+              href="/#cta-section"
               className="px-4 py-2 text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-200 transition-all duration-300 text-sm font-medium rounded-lg"
             >
               Contact
@@ -154,7 +154,7 @@ export default function Header() {
               </div>
             ))}
             <a
-              href="/contact"
+              href="/#cta-section"
               className="block px-3 py-2 rounded-md text-slate-200 hover:bg-cyan-500/20 transition font-medium"
               onClick={() => setMobileOpen(false)}
             >

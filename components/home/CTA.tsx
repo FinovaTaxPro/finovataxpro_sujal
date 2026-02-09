@@ -1,10 +1,23 @@
 // components/home/CTA.tsx
 'use client';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { categories } from '../../data/serviceData';
 
 export default function CTA() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const serviceName = searchParams.get('service');
+    if (serviceName) {
+      setFormData(prev => ({
+        ...prev,
+        service: serviceName
+      }));
+    }
+  }, [searchParams]);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,17 +39,33 @@ export default function CTA() {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate network delay
-    setTimeout(() => {
-      setSubmitted(true);
-      setLoading(false);
-      setFormData({ name: '', email: '', phone: '', service: '' });
-    }, 1500);
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Auto hide success message
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 5500);
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', service: '' });
+        // Auto hide success message
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5500);
+      } else {
+        alert('Failed to send message: ' + (data.error || 'Unknown error'));
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -225,13 +254,15 @@ export default function CTA() {
                       suppressHydrationWarning
                     >
                       <option value="">Select a service</option>
-                      <option value="company-registration">Company Registration</option>
-                      <option value="gst-services">GST Services</option>
-                      <option value="income-tax">Income Tax Filing</option>
-                      <option value="trademark">Trademark Registration</option>
-                      <option value="compliance">Annual Compliance</option>
-                      <option value="licenses">Business Licenses</option>
-                      <option value="other">Other Services</option>
+                      {categories.map((category) => (
+                        <optgroup key={category.id} label={category.name}>
+                          {category.services.map((service) => (
+                            <option key={service.id} value={service.name}>
+                              {service.name}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ))}
                     </select>
                   </div>
 

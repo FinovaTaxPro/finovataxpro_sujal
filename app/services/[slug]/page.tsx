@@ -42,7 +42,11 @@ export default function ServiceDetailPage() {
   }, [params]);
 
   const handleContactExpert = () => {
-    router.push('/contact');
+    if (service) {
+      router.push(`/?service=${encodeURIComponent(service.name)}#cta-section`);
+    } else {
+      router.push('/#cta-section');
+    }
   };
 
   // Parse newline-separated string to array
@@ -223,7 +227,7 @@ export default function ServiceDetailPage() {
                           ))}
                         </ul>
                         <button
-                          onClick={handleContactExpert}
+                          onClick={() => router.push(`/?service=${encodeURIComponent(service.name)} - ${plan.name}#cta-section`)}
                           className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition font-semibold"
                         >
                           Contact to Proceed
