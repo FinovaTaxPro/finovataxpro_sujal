@@ -4,7 +4,9 @@ import WhyChooseUs from '../components/home/WhyChooseUs'
 import Testimonials from '../components/home/Testimonial'
 import CTA from '../components/home/CTA'
 
-export default function Page(){
+import { Suspense } from 'react'
+
+export default function Page() {
   return (
     <>
       <Hero />
@@ -12,7 +14,9 @@ export default function Page(){
       <Services />
       <WhyChooseUs />
       <Testimonials />
-      <CTA />
+      <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
+        <CTA />
+      </Suspense>
     </>
   )
 }
