@@ -724,7 +724,7 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-md p-4 rounded-xl shadow-2xl border border-cyan-400/20 max-w-md mx-auto lg:mx-0">
+            {/* <div className="bg-white/5 backdrop-blur-md p-4 rounded-xl shadow-2xl border border-cyan-400/20 max-w-md mx-auto lg:mx-0">
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
@@ -754,7 +754,7 @@ export default function Hero() {
                   'Free consultation • No credit card required'
                 )}
               </p>
-            </div>
+            </div> */}
 
             <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-slate-300">
               <div className="flex items-center">
