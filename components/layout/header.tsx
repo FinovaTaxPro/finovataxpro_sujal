@@ -8,7 +8,7 @@ export default function Header() {
   const [activeMobileMenu, setActiveMobileMenu] = useState<string | null>(null);
 
   return (
-    <header className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 shadow-lg fixed top-0 left-0 right-0 z-50 overflow-visible">
+    <header className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 shadow-lg fixed top-0 left-0 right-0 z-50 ">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-cyan-500/20 to-blue-700/20 animate-gradient-flow"></div>
@@ -27,7 +27,7 @@ export default function Header() {
       <div className="w-full px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center space-x-2">
+          <a href="/" className="flex items-center space-x-2 flex-shrink-0">
             <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded flex items-center justify-center shadow-lg shadow-cyan-500/30">
               <span className="text-white font-bold text-sm">FT</span>
             </div>
@@ -36,28 +36,28 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center space-x-1 xl:space-x-2">
-            <a
+            {/* <a
               href="/"
-              className="px-4 py-2 text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-200 transition-all duration-300 text-sm font-medium rounded-lg"
+              className="px-2 xl:px-3 py-2 text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-200 transition-all duration-300 text-xs xl:text-sm font-medium rounded-lg whitespace-nowrap"
             >
               Home
-            </a>
+            </a> */}
 
             {categories.map((category) => (
               <div
                 key={category.id}
-                className="relative group"
+                className="relative group flex-shrink-0"
                 onMouseEnter={() => setActiveMenu(category.name)}
                 onMouseLeave={() => setActiveMenu(null)}
               >
                 <button
                   suppressHydrationWarning
-                  className={`px-4 py-2 text-slate-200 transition-all duration-300 text-sm font-medium flex items-center whitespace-nowrap rounded-lg transform hover:scale-105
+                  className={`px-2 xl:px-3 py-2 text-slate-200 transition-all duration-300 text-xs xl:text-sm font-medium flex items-center whitespace-nowrap rounded-lg transform hover:scale-105
                     ${activeMenu === category.name ? 'bg-cyan-500/20 text-cyan-300 shadow-lg shadow-cyan-500/20 scale-105' : 'hover:bg-cyan-500/10 hover:text-cyan-200 hover:shadow-lg hover:shadow-cyan-500/30'}
                   `}
                 >
-                  {category.name}
-                  <svg className={`w-4 h-4 ml-1 transition-transform duration-300 ${activeMenu === category.name ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span className="truncate max-w-[120px] xl:max-w-none">{category.name}</span>
+                  <svg className={`w-3 h-3 xl:w-4 xl:h-4 ml-1 flex-shrink-0 transition-transform duration-300 ${activeMenu === category.name ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
@@ -82,7 +82,7 @@ export default function Header() {
 
             <a
               href="/#cta-section"
-              className="px-4 py-2 text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-200 transition-all duration-300 text-sm font-medium rounded-lg"
+              className="px-2 xl:px-3 py-2 text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-200 transition-all duration-300 text-xs xl:text-sm font-medium rounded-lg whitespace-nowrap"
             >
               Contact
             </a>
@@ -91,7 +91,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             suppressHydrationWarning
-            className="xl:hidden p-2 rounded-md hover:bg-blue-800/50 transition"
+            className="xl:hidden p-2 rounded-md hover:bg-blue-800/50 transition flex-shrink-0"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -119,7 +119,6 @@ export default function Header() {
             >
               Home
             </a>
-
             {categories.map((category) => (
               <div key={category.id}>
                 <button
