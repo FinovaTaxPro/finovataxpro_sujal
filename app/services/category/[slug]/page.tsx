@@ -165,7 +165,7 @@ export default function CategoryPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => router.push('/contact')}
+                onClick={() => router.push(`/?service=${encodeURIComponent(category.name)}#cta-section`)}
                 className="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 💬 Talk to Expert

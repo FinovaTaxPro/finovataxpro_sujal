@@ -7,7 +7,7 @@ export default function CategoryPage() {
   const router = useRouter();
   const params = useParams();
   const slug = params.slug as string;
-  
+
   const category = getCategoryBySlug(slug);
 
   if (!category) {
@@ -41,7 +41,7 @@ export default function CategoryPage() {
             </svg>
             Back to All Categories
           </button>
-          
+
           <div className="flex items-center mb-4">
             <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-3xl mr-4">
               {category.icon}
@@ -51,7 +51,7 @@ export default function CategoryPage() {
               <p className="text-gray-600 mt-2">{category.description}</p>
             </div>
           </div>
-          
+
           <p className="text-gray-500">
             {category.services.length} {category.services.length === 1 ? 'service' : 'services'} available in this category
           </p>
@@ -76,11 +76,11 @@ export default function CategoryPage() {
                     </h3>
                   </div>
                 </div>
-                
+
                 <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                   {service.short}
                 </p>
-                
+
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <div className="text-xl font-bold text-blue-600">
                     {service.price_display}
@@ -107,7 +107,7 @@ export default function CategoryPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => router.push('/contact')}
+              onClick={() => router.push(`/?service=${encodeURIComponent(category.title)}#cta-section`)}
               className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-semibold"
             >
               Talk to Expert
