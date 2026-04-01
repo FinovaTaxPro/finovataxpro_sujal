@@ -59,7 +59,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'FinovaTaxPro',
-  description: 'FinovaTaxPro - Tax, compliance and business registration services'
+  description: 'FinovaTaxPro delivers expert tax planning, compliance management, and business registration services tailored for startups, entrepreneurs, and growing enterprises. From income tax filing and GST compliance to company incorporation and regulatory support, we ensure accuracy, transparency, and timely execution. Simplify your financial processes with trusted professionals dedicated to keeping your business compliant and growth-ready.'
 }
 
 export const viewport = {
