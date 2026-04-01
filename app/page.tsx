@@ -91,7 +91,7 @@ export default function Page(){
       <Services />
       <WhyChooseUs />
       <Team />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
        <CTA />
     </Suspense>
