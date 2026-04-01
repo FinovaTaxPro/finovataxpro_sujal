@@ -160,7 +160,7 @@ function Team() {
   const teamMembers = [
     {
       name: "CA Shruti Dang",
-      role: "Senior Tax Consultant",
+      role: "Founder",
       image: "images/team/cashrutidang.png",
       bio: "15+ years of experience helping businesses optimize their tax strategies and ensure compliance.",
       color: "blue",
@@ -168,8 +168,8 @@ function Team() {
     },
     {
       name: "Jogendra Taneja",
-      role: "Business Filing Specialist",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      role: "Business Partner",
+      image: "images/team/jogendra.jpeg",
       bio: "Expert in LLC formation and corporate structuring with a focus on startup growth strategies.",
       color: "emerald",
 
