@@ -167,13 +167,13 @@ function Team() {
       accent: "from-blue-500 to-blue-600"
     },
     {
-      name: "Jogendra Taneja",
+      name: "Jogender Kumar",
       role: "Business Partner",
       image: "images/team/jogendra.jpeg",
-      bio: "Expert in LLC formation and corporate structuring with a focus on startup growth strategies.",
+      bio: "Leading end-to-end business operations with a focus on performance, branding and delivering high quality customer experiences.",
       color: "emerald",
-
-      accent: "from-emerald-500 to-emerald-600"
+      accent: "from-emerald-500 to-emerald-600",
+      objectFit: "contain"  
     },
     {
       name: "CS Jitendra Jain",
@@ -253,11 +253,15 @@ function Team() {
                 {/* Image container with overlay effect */}
                 <div className="relative h-80 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 brightness-90 group-hover:brightness-100"
-                  />
+                 <img
+  src={member.image}
+  alt={member.name}
+  className={`w-full h-full transform group-hover:scale-110 transition-transform duration-700 brightness-90 group-hover:brightness-100 ${
+    member.objectFit === "contain"
+      ? "object-contain object-top bg-gray-100"
+      : "object-cover"
+  }`}
+/>
                   
                   {/* Floating role badge with animation */}
                   <div className="absolute bottom-6 left-6 right-6 z-20 animate-bounce-subtle">
