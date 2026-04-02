@@ -91,11 +91,11 @@ export default function WhyChooseUs() {
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 p-8 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl">
           <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-2">10K+</div>
+            <div className="text-4xl font-bold text-white mb-2">20+</div>
             <div className="text-blue-100">Happy Clients</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-2">15+</div>
+            <div className="text-4xl font-bold text-white mb-2">12+</div>
             <div className="text-blue-100">Years Experience</div>
           </div>
           <div className="text-center">
@@ -103,7 +103,7 @@ export default function WhyChooseUs() {
             <div className="text-blue-100">Success Rate</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-2">50+</div>
+            <div className="text-4xl font-bold text-white mb-2">10+</div>
             <div className="text-blue-100">Expert Team</div>
           </div>
         </div>
