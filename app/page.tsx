@@ -109,7 +109,7 @@ function Team() {
   ];
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="our-team" className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div 
