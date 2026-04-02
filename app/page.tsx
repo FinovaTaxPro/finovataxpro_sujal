@@ -84,7 +84,7 @@ function Team() {
     {
       name: "CA Shruti Dang",
       role: "Founder",
-      image: "images/team/cashrutidang.png",
+      image: "images/team/cashruti.jpeg",
       bio: "15+ years of experience helping businesses optimize their tax strategies and ensure compliance.",
       color: "blue",
       accent: "from-blue-500 to-blue-600"
